@@ -26,7 +26,9 @@
 		"oF": 1
 		},
 	"/config.rb": {
-		"ft": 131072,
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
 		"oA": 0,
 		"oAP": "/config.rb",
 		"oF": 0
@@ -74,12 +76,12 @@
 		},
 	"/images/logo.png": {
 		"ft": 32768,
-		"iS": 24305,
+		"iS": 12777,
 		"oA": 0,
 		"oAP": "/images/logo.png",
 		"oF": 0,
-		"oIPL": 1,
-		"opt": 1,
+		"oIPL": 0,
+		"opt": 0,
 		"oT": 1,
 		"q": 100
 		},
@@ -145,6 +147,39 @@
 		"oA": 0,
 		"oAP": "/scripts/email.js",
 		"oF": 2,
+		"sC": 3,
+		"tS": 0
+		},
+	"/scripts/email.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/scripts/email-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"/scripts/inputmask.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "/scripts/inputmask-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 0
+		},
+	"/scripts/jquery.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "/scripts/jquery-min.js",
+		"oF": 1,
 		"sC": 3,
 		"tS": 0
 		}
@@ -1615,7 +1650,7 @@
 	"externalServerAddress": "http://localhost:8888",
 	"gitIgnoreBuildFolder": 1,
 	"hideConfigFile": 0,
-	"jsCheckerReservedNamesString": "",
+	"jsCheckerReservedNamesString": "$",
 	"jsHintFlags2": {
 		"asi": {
 			"active": 0,

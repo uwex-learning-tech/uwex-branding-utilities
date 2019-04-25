@@ -5,10 +5,176 @@
     <title>UW Extended Campus - Email Signature</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" media="all" />
     <link href="css/email.css" rel="stylesheet" media="all" />
+    <script src="scripts/jquery.js" type="text/javascript"></script>
+    <script src="scripts/inputmask.js" type="text/javascript"></script>
     <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
     <script src="scripts/email.js" type="text/javascript"></script>
 </head>
 <body>
+    
+    <nav class="navbar navbar-dark" role="navigation">
+        <span class="navbar-brand mb-0 h1">University of Wisconsin Extended Campus</span>
+    </nav>
+    
+    <div class="container-fluid" role="main">
+        
+        <div class="row">
+            
+            <article class="col-md-8 pt-4 pl-4 pr-4" role="article">
+                
+                <h2>Email Signature</h2>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                
+                <form id="signatureForm" role="form" class="needs-validation mb-3" novalidate autocomplete="off">
+                    
+                    <div class="form-row">
+                    
+                        <div class="form-group col-md-4">
+                            <label for="firstNameInput">First Name</label>
+                            <input type="text" class="form-control" id="firstNameInput" required>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Required!</div>
+                        </div>
+                        
+                        <div class="form-group col-md-2">
+                            <label for="mInitialInput">Middle Initial</label>
+                            <input maxlength="4" type="text" class="form-control" id="mInitialInput" aria-describedby="mInitialHelp">
+                            <small id="mInitialHelp" class="text-muted">Optional.</small>
+                        </div>
+                        
+                        <div class="form-group col-md-4">
+                            <label for="lastNameInput">Last Name</label>
+                            <input type="text" class="form-control" id="lastNameInput" required>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Required!</div>
+                        </div>
+                        
+                        <div class="form-group col-md-2">
+                            <label for="credentialInput">Credential</label>
+                            <input type="text" class="form-control" id="credentialInput" aria-describedby="credentialHelp" placeholder="Ph.D., M.B.A.">
+                            <small id="credentialHelp" class="text-muted">Optional.</small>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="titleInput">1st Title</label>
+                        <input type="text" class="form-control" id="titleInput" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Required!</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="titleOptionalInput">2nd Title <span class="text-muted">(optional)</span></label>
+                        <input type="text" class="form-control" id="titleOptionalInput" aria-describedby="optionalTitleHelp">
+                        <small id="optionalTitleHelp" class="text-muted">If you have a second title.</small>
+                    </div>
+                    
+                    <div class="form-row">
+                        
+                        <div class="form-group col-md-6">
+                            <label for="businessUnitInput">1st Business Unit or Program</label>
+                            <input type="text" class="form-control" id="businessUnitInput" required>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Required!</div>
+                        </div>
+                        
+                        <div class="form-group col-md-6">
+                            <label for="programWebsiteInput">Program Website <span class="text-muted">(optional)</span></label>
+                            <input type="text" class="form-control" id="programWebsiteInput">
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="form-row">
+                        
+                        <div class="form-group col-md-6">
+                            <label for="businessUnitOptionalInput">2nd Business Unit or Program <span class="text-muted">(optional)</span></label>
+                            <input type="text" class="form-control" id="businessUnitOptionalInput" aria-describedby="optionalBussinessUnitHelp">
+                            <small id="optionalBussinessUnitHelp" class="text-muted">If you have a second business or program.</small>
+                            <div class="invalid-feedback">Required because program website is set!</div>
+                        </div>
+                        
+                        <div class="form-group col-md-6">
+                            <label for="programWebsiteOptionalInput">Program Website <span class="text-muted">(optional)</span></label>
+                            <input type="text" class="form-control" id="programWebsiteOptionalInput">
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="form-row">
+                        
+                        <div class="form-group col-md-6">
+                            <label for="phoneInput">Phone Number <span class="text-muted">(optional)</span></label>
+                            <input type="tel" class="form-control" id="phoneInput">
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label for="emailInput">Email</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="emailInput" aria-label="Email" aria-describedby="emailInput" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">@uwex.edu</span>
+                                </div>
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Required!</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <input id="submitBtn" type="submit" value="Get Signature!" class="btn btn-dark custom-red" />
+                    <input id="clearBtn" type="button" value="Clear" class="btn btn-link" />
+                    
+                </form>
+                
+            </article>
+            
+            <aside id="side" class="col-md-4 pt-4 pl-4 pr-4 border-left bg-light" role="complementary">
+                
+                <h3 class="font-weight-lighter text-secondary border-bottom">Preview</h3>
+                <div id="preview">
+                    <p>
+                        <strong>
+                            <span id="firstName" class="text-muted">First Name</span> <span id="middleInitial" class="d-none text-muted">Middle Initial</span> <span id="lastName" class="text-muted">Last Name</span><span id="credential" class="d-none text-muted">, Credential</span><br>
+                            <span id="title" class="text-muted">Title</span><br>
+                            <span id="titleOptional" class="d-none text-muted">Second Title<br></span>
+                        </strong>
+                        
+                        <span id="businessUnit" class="text-muted">Business Unit or Program</span> <span id="programWebsite" class="d-none text-muted">| Program Website</span><br>
+                        <span id="2ndBusinessUnit" class="d-none"><span id="businessUnitOptional" class="text-muted d-none">Second Business Unit or Program</span> <span id="programWebsiteOptional" class="text-muted d-none">| Program Website</span><br></span>
+                        <span id="phoneOptional" class="d-none text-muted">(123) 456-7890 |</span> <span id="email" class="text-muted">first.last@uwex.edu</span> | ce.uwex.edu
+                    </p>
+                    <p>
+                        <img src="images/logo.png" width="350px" height="auto" alt="University of Wisconsin Extended Campus" />
+                    </p>
+                </div>
+                
+                <div class="alert alert-light" role="alert">
+                    Do not copy and paste the preview. Unintentional side effects may occur. Use the <a id="getSignatureBtn" class="custom-red-text" href="#">Get Signature!</a> button to generate the signature.
+                </div>
+                
+                <h3 class="font-weight-lighter text-secondary border-bottom">Instructions</h3>
+                <div id="artboard" class="outlook">
+                    <p><b>Full Name, Credential</b></p>
+                    <p><b>Title</b></p>
+                    <p><b>Title</b></p>
+                    <p>Business Unit | website</p>
+                    <p>Business Unit | website</p>
+                    <p>(123) 456-7890 | first.last@uwex.edu | ce.uwex.edu</p>
+                    <p>&nbsp;</p>
+                    <p><img width=350 height=111.3 src="images/logo.png"></p>
+                </div>
+            </aside>
+            
+        </div>
+        
+    </div>
+    
+    <footer class="border-top pt-4 pl-4 pr-4 pb-4 bg-light" role="contentinfo">
+        <p class="mb-0">&copy; 2019. University of Wisconsin Extended Campus. All rights reserved.</p>
+    </footer>
     
 </body>
 </html>
