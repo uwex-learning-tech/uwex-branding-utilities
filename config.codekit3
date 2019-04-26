@@ -26,7 +26,9 @@
 		"oF": 1
 		},
 	"/config.rb": {
-		"ft": 131072,
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
 		"oA": 0,
 		"oAP": "/config.rb",
 		"oF": 0
@@ -71,6 +73,14 @@
 		"oF": 0,
 		"oS": 3,
 		"uL": 1
+		},
+	"/images/favicon.ico": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 1,
+		"oAP": "/images/favicon.ico",
+		"oF": 1
 		},
 	"/images/logo.jpg": {
 		"ft": 16384,
