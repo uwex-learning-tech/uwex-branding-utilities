@@ -42,7 +42,7 @@ $( document ).ready( function() {
     };
     
     // enable phone number formatting
-    $( "#phoneInput" ).inputmask({"mask": "(999) 999-9999"});
+    $( "#phoneInput" ).inputmask({"mask": "[(999) 999-9999][, Ext. [999]{0,1}]{0,1}"});
     
     /* on form input changes */
     
@@ -180,7 +180,7 @@ $( document ).ready( function() {
         if ( value.length === 0 ) {
             this.value = "";
             signatureComponents.firstTitle = "";
-            $( "#title" ).addClass( "text-muted" ).removeClass( "mark" ).html( "Title" );
+            $( "#title" ).addClass( "text-muted" ).removeClass( "mark" ).html( "Job Title 1" );
         }
         
     } );
@@ -204,7 +204,7 @@ $( document ).ready( function() {
         if ( value.length === 0 ) {
             this.value = "";
             signatureComponents.secondTitle = "";
-            $( "#titleOptional" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "Second Title<br>" );
+            $( "#titleOptional" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "Job Title 2<br>" );
         }
         
     } );
@@ -253,7 +253,7 @@ $( document ).ready( function() {
         if ( value.length === 0 ) {
             this.value = "";
             signatureComponents.firstWebsite = "";
-            $( "#programWebsite" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "| Program Website" );
+            $( "#programWebsite" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "| Website" );
         }
         
     } );
@@ -291,7 +291,7 @@ $( document ).ready( function() {
             
             this.value = "";
             signatureComponents.secondUnitProgram = "";
-            $( "#businessUnitOptional" ).addClass( "text-muted" ).removeClass( "mark" ).html( "Second Business Unit or Program" );
+            $( "#businessUnitOptional" ).addClass( "text-muted" ).removeClass( "mark" ).html( "2nd Business Unit or Program" );
             
             if ( signatureComponents.secondWebsite.length == 0 ) {
                 
@@ -318,7 +318,7 @@ $( document ).ready( function() {
             
             this.value = "";
             signatureComponents.secondWebsite = "";
-            $( "#programWebsiteOptional" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "| Program Website" );
+            $( "#programWebsiteOptional" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "| Website" );
             
             if ( signatureComponents.secondUnitProgram.length == 0 ) {
                 
