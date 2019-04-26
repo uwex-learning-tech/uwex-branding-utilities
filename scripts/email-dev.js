@@ -359,7 +359,7 @@ $( document ).ready( function() {
     // email local-part
     $( "#emailInput" ).on( "focus", function() {
         
-        $( "#email" ).addClass( "mark" );
+        $( "#email" ).removeClass( "d-none" ).addClass( "mark" );
         
     } );
     
@@ -370,12 +370,12 @@ $( document ).ready( function() {
         signatureComponents.email = value + "@uwex.edu";
         this.value = value;
         
-        $( "#email" ).html( signatureComponents.email ).removeClass( "text-muted mark" );
+        $( "#email" ).html( signatureComponents.email + " |" ).removeClass( "text-muted mark" );
         
         if ( value.length === 0 ) {
             this.value = "";
             signatureComponents.email = "";
-            $( "#email" ).addClass( "text-muted" ).removeClass( "mark" ).html( "first.last@uwex.edu" );
+            $( "#email" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "first.last@uwex.edu |" );
         }
         
     } );
@@ -401,7 +401,7 @@ $( document ).ready( function() {
 
     } );
     
-    $( "#getSignatureBtn" ).on( "click", function( event ) {
+    $( ".getSignatureBtn" ).on( "click", function( event ) {
         
         event.preventDefault();
         event.stopPropagation();
@@ -424,11 +424,13 @@ $( document ).ready( function() {
         
         if ( signatureComponents.firstName.length == 0 || signatureComponents.lastName.length == 0 ) {
             
+            $( "#email" ).addClass( "d-none" );
             $( "#emailInput" ).val( "" ).blur();
             return;
             
         }
         
+        $( "#email" ).removeClass( "d-none" );
         $( "#emailInput" ).val( signatureComponents.firstName.toLowerCase() + "." + signatureComponents.lastName.toLowerCase() ).blur();
         
     }
@@ -439,36 +441,33 @@ $( document ).ready( function() {
         let fullName = signatureComponents.firstName + " " + signatureComponents.middleInitial + " " + signatureComponents.lastName;
         let credential = signatureComponents.credential.length ? ", " + signatureComponents.credential : "";
         let firstUnitProgram = signatureComponents.firstUnitProgram + ( signatureComponents.firstWebsite.length ? " | " + signatureComponents.firstWebsite : "" );
-        let contactInfo = ( signatureComponents.phoneNumber.length ? signatureComponents.phoneNumber + " | " : "" ) + signatureComponents.email + " | ce.uwex.edu";
-        let image = "<img width='330' height='95.39' src='images/logo.png' alt='Uinversity of Wisconsin Extended Campus'>";
-        let signature = "<table border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse;border:none'>";
+        let phoneNumber = signatureComponents.phoneNumber.length ? signatureComponents.phoneNumber + " | " : "";
+        let email = signatureComponents.email.length ? signatureComponents.email + " | " : "";
+        let contactInfo = phoneNumber + email + "ce.uwex.edu";
+        let image = "<img nosend='1' width='199px' height='64px' src='https://media.uwex.edu/app/tools/email-signature-generator/images/logo.jpg' alt='University of Wisconsin Extended Campus' />";
+        let signature = "";
         
-        signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'><b><span style='font-size:11.0pt'>" + fullName + credential + "</span></b></p></td></tr>";
+        signature += "<p style='color:#000;margin:0in;font-family:\"Calibri\",sans-serif;line-height=0.1in;font-size:11.0pt;'><b>" + fullName + credential + "</b><br>";
         
-        signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'><b><span style='font-size:11.0pt'>" + signatureComponents.firstTitle + "</span></b></p></td></tr>";
-        
+        signature += "<b>" + signatureComponents.firstTitle + "</b><br>";
         
         if ( signatureComponents.secondTitle.length ) {
-            signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'><b><span style='font-size:11.0pt'>" + signatureComponents.secondTitle + "</span></b></p></td></tr>";
+            signature += "<b>" + signatureComponents.secondTitle + "</b><br>";
         }
         
-        signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'><span style='font-size:11.0pt'>" + firstUnitProgram + "</span></p></td></tr>";
+        signature += firstUnitProgram + "<br>";
         
         if ( signatureComponents.secondUnitProgram.length ) {
             
             let secondUnitProgram = signatureComponents.secondUnitProgram + ( signatureComponents.secondWebsite.length ? " | " + signatureComponents.secondWebsite : "" );
             
-            signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'><span style='font-size:11.0pt'>" + secondUnitProgram + "</span></p></td></tr>";
+            signature += secondUnitProgram + "<br>";
             
         }
         
-        signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'><span style='font-size:11.0pt'>" + contactInfo + "</span></p></td></tr>";
+        signature += contactInfo;
         
-        signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'><span style='font-size:11.0pt'>&nbsp;</span></p></td></tr>";
-        
-        signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'>" + image + "</p></td></tr>";
-
-        signature += "</table>";
+        signature += "<br><br>" + image + "</p>";
         
         $( "#artboard" ).html( signature );
         
@@ -542,7 +541,7 @@ $( document ).ready( function() {
                 
         }
         
-        $( "#signatureForm" ).before( "<div id=\"" + id + "\" class=\"alert alert-" + tag + " alert-dismissible fade show\" role=\"alert\">" + msg+ "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>" );
+        $( "#submitBtn" ).parent().before( "<div id=\"" + id + "\" class=\"alert alert-" + tag + " alert-dismissible fade show\" role=\"alert\">" + msg+ "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>" );
         
         let dismissTimer = window.setTimeout( function() {
 

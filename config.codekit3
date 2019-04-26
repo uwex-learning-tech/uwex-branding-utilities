@@ -74,16 +74,35 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"/images/logo.png": {
+	"/images/logo.jpg": {
+		"ft": 16384,
+		"iS": 38623,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/images/logo.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/images/preview_logo.png": {
 		"ft": 32768,
 		"iS": 12777,
 		"oA": 0,
-		"oAP": "/images/logo.png",
+		"oAP": "/images/preview_logo.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
 		"oT": 1,
 		"q": 100
+		},
+	"/images/~$than S.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/images/~$than S.html",
+		"oF": 0
 		},
 	"/index.html": {
 		"cB": 0,
