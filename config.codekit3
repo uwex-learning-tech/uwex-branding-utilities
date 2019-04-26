@@ -209,7 +209,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-yesBaby",
 	"iconImageWasSetByUser": 1,
-	"lastBuiltDate": 578000472.43564796
+	"lastBuiltDate": 578001213.89835298
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -2251,7 +2251,7 @@
 	"languageDefaultsUserDefined": [
 		],
 	"overrideExternalServerCSS": 0,
-	"previewPathAddition": "",
+	"previewPathAddition": "/build",
 	"skippedFoldersString": "log, _logs, logs, _cache, cache, .idea, /storage/framework/sessions, node_modules",
 	"sourceFolderName": "",
 	"susyVersion": 3,
