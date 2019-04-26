@@ -23,42 +23,62 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+$uwex-red: #9f2842;
+$uwex-text-color: #3d4543;
+
 body {
-    color: #3d4543;
-}
-
-.navbar {
-    background-color: #9f2842;
-}
-
-#preview {
-    color: #000;
-    font-family: sans-serif;
-}
-
-.custom-red {
-    border-color: #661829;
-    background-color: #9f2842;
-}
-
-.custom-red-text {
-    color: #9f2842;
-}
-
-#artboard {
-    width:1px;height: 1px;
-    overflow: hidden;
-    opacity: 0;
-}
-
-#artboard.outlook {
     
-    font-family: 'Calibri',sans-serif;
-    color:windowtext;
-    background-color: white;
+    color: $uwex-text-color;
+    background-color: #f8f9fa;
     
-    p {
-        margin: 0in;
+    .navbar {
+        background-color: $uwex-red;
+    }
+    
+    .content-body {
+        background-color: #fff;
+    }
+    
+    .side {
+        
+        #preview {
+            color: #000;
+            font-family: sans-serif;
+        }
+        
+        #artboard {
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            opacity: 0;
+        }
+        
+        #artboard.outlook {
+            background-color: white;
+        }
+        
+        ul {
+            
+            li {
+                
+                .small-text {
+                    line-height: 1.25em;
+                }
+
+            }
+            
+        }
+        
+                
+    }
+    
+    .custom-red {
+        border-color: #661829;
+        background-color: $uwex-red;
+    }
+    
+    .custom-red-text {
+        color: $uwex-red;
     }
     
 }

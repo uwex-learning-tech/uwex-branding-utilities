@@ -21,4 +21,4 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*/body{color:#3d4543}.navbar{background-color:#9f2842}#preview{color:#000;font-family:sans-serif}.custom-red{border-color:#661829;background-color:#9f2842}.custom-red-text{color:#9f2842}#artboard{width:1px;height:1px;overflow:hidden;opacity:0}#artboard.outlook{font-family:'Calibri',sans-serif;color:windowtext;background-color:white}#artboard.outlook p{margin:0in}
+*/body{color:#3d4543;background-color:#f8f9fa}body .navbar{background-color:#9f2842}body .content-body{background-color:#fff}body .side #preview{color:#000;font-family:sans-serif}body .side #artboard{width:1px;height:1px;overflow:hidden;opacity:0}body .side #artboard.outlook{background-color:white}body .side ul li .small-text{line-height:1.25em}body .custom-red{border-color:#661829;background-color:#9f2842}body .custom-red-text{color:#9f2842}

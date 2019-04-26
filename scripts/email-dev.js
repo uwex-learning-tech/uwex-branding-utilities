@@ -33,9 +33,9 @@ $( document ).ready( function() {
         "firstTitle": "",
         "secondTitle": "",
         "firstUnitProgram": "",
-        "firstProgramWebsite": "",
+        "firstWebsite": "",
         "secondUnitProgram": "",
-        "secondProgramWebsite": "",
+        "secondWebsite": "",
         "phoneNumber": "",
         "email": "",
         "valid": false
@@ -64,7 +64,12 @@ $( document ).ready( function() {
         
         if ( value.length === 0 ) {
             this.value = "";
+            signatureComponents.firstName = "";
             $( "#firstName" ).addClass( "text-muted" ).removeClass( "mark" ).html( "First Name" );
+        }
+        
+        if ( signatureComponents.lastName.length ) {
+            autoFillEmail();
         }
         
     } );
@@ -75,15 +80,18 @@ $( document ).ready( function() {
         $( "#middleInitial" ).removeClass( "d-none" ).addClass( "mark" );
         
     } );
+    
+    $( "#mInitialInput" ).on( "input paste", function() {
+        
+        let value = this.value.replace( /[^A-Za-z\.]/, "" );
+        this.value = value
+        
+    } );
 
     $( "#mInitialInput" ).on( "blur", function() {
         
         let value = this.value.replace(".", "").trim();
         let newValue = "";
-        
-        if ( value.length >= this.maxLength ) {
-            value = value[0] + value[1];
-        }
         
         if ( value.length ) {
             [...value].forEach( c => c != "." ? newValue += c + "." : newValue += "" );
@@ -98,6 +106,7 @@ $( document ).ready( function() {
         
         if ( value.length === 0 ) {
             this.value = "";
+            signatureComponents.middleInitial = "";
             $( "#middleInitial" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "Middle Initial" );
         }
         
@@ -121,7 +130,12 @@ $( document ).ready( function() {
         
         if ( value.length === 0 ) {
             this.value = "";
+            signatureComponents.lastName = "";
             $( "#lastName" ).addClass( "text-muted" ).removeClass( "mark" ).html( "Last Name" );
+        }
+        
+        if ( signatureComponents.firstName.length ) {
+            autoFillEmail();
         }
         
     } );
@@ -141,6 +155,7 @@ $( document ).ready( function() {
         
         if ( this.value.trim().length === 0 ) {
             this.value = "";
+            signatureComponents.credential = "";
             $( "#credential" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( ", Credential" );
         }
         
@@ -164,6 +179,7 @@ $( document ).ready( function() {
         
         if ( value.length === 0 ) {
             this.value = "";
+            signatureComponents.firstTitle = "";
             $( "#title" ).addClass( "text-muted" ).removeClass( "mark" ).html( "Title" );
         }
         
@@ -187,6 +203,7 @@ $( document ).ready( function() {
         
         if ( value.length === 0 ) {
             this.value = "";
+            signatureComponents.secondTitle = "";
             $( "#titleOptional" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "Second Title<br>" );
         }
         
@@ -210,6 +227,7 @@ $( document ).ready( function() {
         
         if ( value.length === 0 ) {
             this.value = "";
+            signatureComponents.firstUnitProgram = "";
             $( "#businessUnit" ).addClass( "text-muted" ).removeClass( "mark" ).html( "Business Unit or Program" );
         }
         
@@ -227,13 +245,14 @@ $( document ).ready( function() {
         let value = this.value.trim().toLowerCase();
         
         value = value.replace(/http(s)?:\/\//gi, "");
-        signatureComponents.firstProgramWebsite = value;
-        this.value = signatureComponents.firstProgramWebsite;
+        signatureComponents.firstWebsite = value;
+        this.value = signatureComponents.firstWebsite;
         
-        $( "#programWebsite" ).html( "| " + signatureComponents.firstProgramWebsite ).removeClass( "text-muted mark" );
+        $( "#programWebsite" ).html( "| " + signatureComponents.firstWebsite ).removeClass( "text-muted mark" );
         
         if ( value.length === 0 ) {
             this.value = "";
+            signatureComponents.firstWebsite = "";
             $( "#programWebsite" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "| Program Website" );
         }
         
@@ -271,9 +290,10 @@ $( document ).ready( function() {
         if ( value.length === 0 ) {
             
             this.value = "";
+            signatureComponents.secondUnitProgram = "";
             $( "#businessUnitOptional" ).addClass( "text-muted" ).removeClass( "mark" ).html( "Second Business Unit or Program" );
             
-            if ( signatureComponents.secondProgramWebsite.length == 0 ) {
+            if ( signatureComponents.secondWebsite.length == 0 ) {
                 
                 $( "#2ndBusinessUnit" ).addClass( "d-none" );
                 $( "#businessUnitOptional" ).addClass( "d-none" );
@@ -288,15 +308,16 @@ $( document ).ready( function() {
         
         let value = this.value.trim().toLowerCase().replace(/http(s)?:\/\//gi, "");
         
-        signatureComponents.secondProgramWebsite = value;
-        this.value = signatureComponents.secondProgramWebsite;
+        signatureComponents.secondWebsite = value;
+        this.value = signatureComponents.secondWebsite;
         
-        $( "#programWebsiteOptional" ).html( "| " + signatureComponents.secondProgramWebsite ).removeClass( "text-muted mark" );
+        $( "#programWebsiteOptional" ).html( "| " + signatureComponents.secondWebsite ).removeClass( "text-muted mark" );
         $( "#businessUnitOptionalInput" ).attr("required", true);
         
         if ( value.length === 0 ) {
             
             this.value = "";
+            signatureComponents.secondWebsite = "";
             $( "#programWebsiteOptional" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "| Program Website" );
             
             if ( signatureComponents.secondUnitProgram.length == 0 ) {
@@ -329,6 +350,7 @@ $( document ).ready( function() {
         
         if ( value.length === 0 ) {
             this.value = "";
+            signatureComponents.phoneNumber = "";
             $( "#phoneOptional" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "(123) 456-7890 |" );
         }
         
@@ -352,6 +374,7 @@ $( document ).ready( function() {
         
         if ( value.length === 0 ) {
             this.value = "";
+            signatureComponents.email = "";
             $( "#email" ).addClass( "text-muted" ).removeClass( "mark" ).html( "first.last@uwex.edu" );
         }
         
@@ -366,11 +389,15 @@ $( document ).ready( function() {
         signatureComponents.valid = this.checkValidity();
         $( this ).addClass( "was-validated" );
         
-        //if ( signatureComponents.valid ) {
+        if ( signatureComponents.valid ) {
             
             getSignature();
             
-        //}
+        } else {
+            
+            alert( "missing" );
+            
+        }
 
     } );
     
@@ -385,14 +412,70 @@ $( document ).ready( function() {
         
     } );
     
+    // clear button
+    $( "#clearBtn" ).on( "click", function() {
+        
+        $( "input" ).not( "input[type=button], input[type=submit]" ).val( "" ).blur();
+        $( "#signatureForm.needs-validation" ).removeClass( "was-validated" );
+        
+    } );
+    
+    function autoFillEmail() {
+        
+        if ( signatureComponents.firstName.length == 0 || signatureComponents.lastName.length == 0 ) {
+            
+            $( "#emailInput" ).val( "" ).blur();
+            return;
+            
+        }
+        
+        $( "#emailInput" ).val( signatureComponents.firstName.toLowerCase() + "." + signatureComponents.lastName.toLowerCase() ).blur();
+        
+    }
+    
     // get signature function
     function getSignature() {
         
-        console.log(signatureComponents);
+        let fullName = signatureComponents.firstName + " " + signatureComponents.middleInitial + " " + signatureComponents.lastName;
+        let credential = signatureComponents.credential.length ? ", " + signatureComponents.credential : "";
+        let firstUnitProgram = signatureComponents.firstUnitProgram + ( signatureComponents.firstWebsite.length ? " | " + signatureComponents.firstWebsite : "" );
+        let contactInfo = ( signatureComponents.phoneNumber.length ? signatureComponents.phoneNumber + " | " : "" ) + signatureComponents.email + " | ce.uwex.edu";
+        let image = "<img width='330' height='95.39' src='images/logo.png' alt='Uinversity of Wisconsin Extended Campus'>";
+        let signature = "<table border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse;border:none'>";
+        
+        signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'><b><span style='font-size:11.0pt'>" + fullName + credential + "</span></b></p></td></tr>";
+        
+        signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'><b><span style='font-size:11.0pt'>" + signatureComponents.firstTitle + "</span></b></p></td></tr>";
+        
+        
+        if ( signatureComponents.secondTitle.length ) {
+            signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'><b><span style='font-size:11.0pt'>" + signatureComponents.secondTitle + "</span></b></p></td></tr>";
+        }
+        
+        signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'><span style='font-size:11.0pt'>" + firstUnitProgram + "</span></p></td></tr>";
+        
+        if ( signatureComponents.secondUnitProgram.length ) {
+            
+            let secondUnitProgram = signatureComponents.secondUnitProgram + ( signatureComponents.secondWebsite.length ? " | " + signatureComponents.secondWebsite : "" );
+            
+            signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'><span style='font-size:11.0pt'>" + secondUnitProgram + "</span></p></td></tr>";
+            
+        }
+        
+        signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'><span style='font-size:11.0pt'>" + contactInfo + "</span></p></td></tr>";
+        
+        signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'><span style='font-size:11.0pt'>&nbsp;</span></p></td></tr>";
+        
+        signature += "<tr><td style='padding:0in'><p style='margin:0in;font-family:\"Calibri\",sans-serif;'>" + image + "</p></td></tr>";
+
+        signature += "</table>";
+        
+        $( "#artboard" ).html( signature );
         
         copyToClipboard();
         
     }
+    
     
     function copyToClipboard() {
         
@@ -402,12 +485,20 @@ $( document ).ready( function() {
             
             // Now that we've selected the anchor text, execute the copy command  
             var successful = document.execCommand('copy');  
-            var msg = successful ? 'successful' : 'unsuccessful';  
-            console.log('Copies');
             
-        } catch(err) {
+            if ( successful ) {
+                
+                alert( "success" );
+                
+            } else {
+                
+                alert( "unsuccessful" );
+                
+            }
             
-            console.log('Oops, unable to copy');
+        } catch ( err ) {
+            
+            alert( "error" );
              
         }
         
@@ -417,13 +508,50 @@ $( document ).ready( function() {
         
     }
     
-    // clear button
-    $( "#clearBtn" ).on( "click", function() {
+    function alert( type ) {
         
-        $( "input" ).not( "input[type=button], input[type=submit]" ).val( "" ).blur();
-        $( "#signatureForm.needs-validation" ).removeClass( "was-validated" );
+        let id = "";
+        let msg = "";
+        let tag = "";
         
-    } );
+        switch ( type ) {
+            
+            case "success":
+                id = "signatureSuccess";
+                tag = "success";
+                msg = "<strong>Success!</strong> Your email signature has been copied to your computer's clipboard.";
+            break;
+                
+            case "missing":
+                id = "signatureError";
+                tag = "danger";
+                msg = "<strong>Oops!</strong> Please enter all required information.";
+            break;
+                
+            case "unsuccessful":
+                id = "signatureError";
+                tag = "danger";
+                msg = "<strong>Oh no!</strong> Your email signature was not copied successfully. Please try again.";
+            break;
+                
+            case "error":
+                id = "signatureError";
+                tag = "danger";
+                msg = "<strong>Please try a different web browser</strong> Your current web browser does not supports copying to clipboard.";
+            break;
+                
+        }
+        
+        $( "#signatureForm" ).before( "<div id=\"" + id + "\" class=\"alert alert-" + tag + " alert-dismissible fade show\" role=\"alert\">" + msg+ "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>" );
+        
+        let dismissTimer = window.setTimeout( function() {
+
+            $( "#" + id ).alert( "close" );
+            window.clearInterval( dismissTimer );
+            
+        }, 6000 );
+        
+    }
     
 } );
 
@@ -456,7 +584,7 @@ function selectText( id ) {
         sel = window.getSelection();
         
         range = document.createRange(); //range object
-        range.selectNode( el ); //sets Range
+        range.selectNodeContents( el ); //sets Range
         sel.removeAllRanges(); //remove all ranges from selection
         sel.addRange( range );
         
