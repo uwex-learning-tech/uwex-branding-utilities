@@ -444,7 +444,7 @@ $( document ).ready( function() {
         let phoneNumber = signatureComponents.phoneNumber.length ? signatureComponents.phoneNumber + " | " : "";
         let email = signatureComponents.email.length ? signatureComponents.email + " | " : "";
         let contactInfo = phoneNumber + email + "ce.uwex.edu";
-        let image = "<img nosend='1' width='199px' height='64px' src='https://media.uwex.edu/app/tools/email-signature-generator/images/logo.jpg' alt='University of Wisconsin Extended Campus' />";
+        let image = "<img nosend='1' width='199px' height='63px' src='https://media.uwex.edu/app/tools/email-signature-generator/images/logo.jpg' alt='University of Wisconsin Extended Campus' />";
         let signature = "";
         
         signature += "<p style='color:#000;margin:0in;font-family:\"Calibri\",sans-serif;line-height=0.1in;font-size:11.0pt;'><b>" + fullName + credential + "</b><br>";
