@@ -25,12 +25,6 @@
 		"oAP": "/build/.gitignore",
 		"oF": 1
 		},
-	"/build": {
-		"ft": 65536,
-		"oA": 1,
-		"oAP": "/build/build",
-		"oF": 0
-		},
 	"/business-card.html": {
 		"cB": 1,
 		"ft": 8192,
@@ -40,9 +34,7 @@
 		"oF": 0
 		},
 	"/config.rb": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
+		"ft": 131072,
 		"oA": 0,
 		"oAP": "/config.rb",
 		"oF": 0
@@ -280,11 +272,11 @@
 	},
 "projectAttributes": {
 	"creationDate": 577731994.795802,
-	"displayValue": "email-signature-generator",
+	"displayValue": "uwex-branding-utilities",
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-yesBaby",
 	"iconImageWasSetByUser": 1,
-	"lastBuiltDate": 578257689.62068903
+	"lastBuiltDate": 578340604.98117304
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

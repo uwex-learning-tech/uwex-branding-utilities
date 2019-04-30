@@ -2,7 +2,7 @@
 Business Card Request Form
 
 @author: Ethan Lin
-@url: https://github.com/oel-mediateam/business-card-request-form
+@url: https://github.com/oel-mediateam/uwex-branding-utilities
 @version: 1.0.0
 @license: GNU GENERAL PUBLIC LICENSE v3
 

@@ -2,7 +2,7 @@
 Email Signature and Business Card
 
 @author: Ethan Lin
-@url: https://github.com/oel-mediateam/
+@url: https://github.com/oel-mediateam/uwex-branding-utilities
 @version: 1.0.0
 @license: GNU GENERAL PUBLIC LICENSE v3
 
