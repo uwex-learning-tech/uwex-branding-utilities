@@ -31,8 +31,18 @@
 		"oAP": "/build/build",
 		"oF": 0
 		},
+	"/business-card.html": {
+		"cB": 1,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/build/business-card.html",
+		"oF": 0
+		},
 	"/config.rb": {
-		"ft": 131072,
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
 		"oA": 0,
 		"oAP": "/config.rb",
 		"oF": 0
@@ -55,6 +65,32 @@
 		"oAP": "/build/css/bootstrap.min.css.map",
 		"oF": 0
 		},
+	"/css/card.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/build/css/card.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
+	"/css/common.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/build/css/common.css",
+		"oF": 0,
+		"oS": 3,
+		"uL": 1
+		},
 	"/css/email.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -68,6 +104,25 @@
 		"oS": 3,
 		"uL": 1
 		},
+	"/email-signature.html": {
+		"cB": 1,
+		"ft": 8192,
+		"hM": 1,
+		"oA": 0,
+		"oAP": "/build/email-signature.html",
+		"oF": 1
+		},
+	"/images/back.png": {
+		"ft": 32768,
+		"iS": 52380,
+		"oA": 2,
+		"oAP": "/build/images/back.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"/images/favicon.ico": {
 		"cB": 0,
 		"ft": 8192,
@@ -75,6 +130,17 @@
 		"oA": 2,
 		"oAP": "/build/images/favicon.ico",
 		"oF": 3
+		},
+	"/images/front.png": {
+		"ft": 32768,
+		"iS": 6944,
+		"oA": 2,
+		"oAP": "/build/images/front.png",
+		"oF": 1,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
 		},
 	"/images/logo.jpg": {
 		"ft": 16384,
@@ -101,10 +167,10 @@
 	"/index.html": {
 		"cB": 1,
 		"ft": 8192,
-		"hM": 1,
+		"hM": 0,
 		"oA": 0,
 		"oAP": "/build/index.html",
-		"oF": 1
+		"oF": 0
 		},
 	"/LICENSE": {
 		"cB": 0,
@@ -152,7 +218,29 @@
 		"oAP": "/build/scripts/bootstrap.min.js.map",
 		"oF": 3
 		},
-	"/scripts/email-dev.js": {
+	"/scripts/card.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/build/scripts/card.js",
+		"oF": 2,
+		"sC": 3,
+		"tS": 0
+		},
+	"/scripts/common.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 2,
+		"oAP": "/build/scripts/common.js",
+		"oF": 3,
+		"sC": 3,
+		"tS": 0
+		},
+	"/scripts/email.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,

@@ -1,0 +1,175 @@
+/*!
+Business Card Request Form
+
+@author: Ethan Lin
+@url: https://github.com/oel-mediateam/business-card-request-form
+@version: 1.0.0
+@license: GNU GENERAL PUBLIC LICENSE v3
+
+Business card request form for UW Extended Campus
+Copyright (C) 2019  Ethan Lin and UW Extended Campus
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+body {
+    
+    .side {
+        
+        .preview {
+            
+            font-family: 'Open Sans', sans-serif;
+            color: #3d4643;
+            background-image: url("../images/front.png");
+            background-repeat: no-repeat;
+            background-position: left top;
+            background-size: cover;
+            width: 282px;
+            height: 157px;
+            padding: 15px;
+            zoom: 1.5;
+            
+            .top {
+                
+                line-height: .9;
+                margin: 0;
+                
+                .fullName {
+                    line-height: 0;
+                    font-size: 75%;
+                    text-transform: uppercase;
+                }
+                
+            }
+            
+            .bottom {
+                
+                padding-top: 40px;
+                font-size: 60%;
+                line-height: 1.25;
+                
+                .contactInfo {
+                    font-weight:  bold;
+                }
+                
+            }
+            
+            #firstName, #middleInitial, #lastName {
+                color: #a02843;
+                font-weight: bold;
+            }
+            
+            #title {
+                font-weight: bold;
+            }
+            
+            #title, #businessUnit, #org {
+                font-size: 60%;
+            }
+            
+        }
+        
+        .preview.back {
+            background-image: url("../images/back.png");
+            background-repeat: no-repeat;
+            background-position: left top;
+            background-size: cover;
+            width: 282px;
+            height: 157px;
+            zoom: 1.5;
+        }
+           
+    }
+    
+}
+
+@media only screen and (min-width: 544px) {
+    
+    body {
+    
+        .side {
+            
+            .preview, .preview.back {
+                zoom: 1.75;
+            }
+                    
+        }
+        
+    }
+    
+}
+
+@media only screen and (min-width: 614px) {
+    
+    body {
+    
+        .side {
+            
+            .preview, .preview.back {
+                zoom: 2;
+            }
+                    
+        }
+        
+    }
+    
+}
+
+@media only screen and (min-width: 992px) {
+    
+    body {
+    
+        .side {
+            
+            .preview, .preview.back {
+                zoom: 1;
+            }
+                    
+        }
+        
+    }
+    
+}
+
+@media only screen and (min-width: 1206px) {
+    
+    body {
+    
+        .side {
+            
+            .preview, .preview.back {
+                zoom: 1.25;
+            }
+                    
+        }
+        
+    }
+    
+}
+
+@media only screen and (min-width: 1418px) {
+    
+    body {
+    
+        .side {
+            
+            .preview, .preview.back {
+                zoom: 1.5;
+            }
+                    
+        }
+        
+    }
+    
+}

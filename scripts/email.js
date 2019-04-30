@@ -91,13 +91,15 @@ $( document ).ready( function() {
     $( "#mInitialInput" ).on( "blur", function() {
         
         let value = this.value.replace(".", "").trim();
-        let newValue = "";
+        let newValue = value;
         
+/*
         if ( value.length ) {
             [...value].forEach( c => c != "." ? newValue += c + "." : newValue += "" );
         } else {
             newValue = value;
         }
+*/
         
         signatureComponents.middleInitial = newValue.toUpperCase();
         
@@ -242,9 +244,8 @@ $( document ).ready( function() {
     
     $( "#programWebsiteInput" ).on( "blur", function() {
         
-        let value = this.value.trim().toLowerCase();
+        let value = trim( this.value.trim().toLowerCase().replace(/http(s)?:\/\//gi, ""), "/" );
         
-        value = value.replace(/http(s)?:\/\//gi, "");
         signatureComponents.firstWebsite = value;
         this.value = signatureComponents.firstWebsite;
         
@@ -306,7 +307,7 @@ $( document ).ready( function() {
     
     $( "#programWebsiteOptionalInput" ).on( "blur", function() {
         
-        let value = this.value.trim().toLowerCase().replace(/http(s)?:\/\//gi, "");
+        let value = trim( this.value.trim().toLowerCase().replace(/http(s)?:\/\//gi, ""), "/" );
         
         signatureComponents.secondWebsite = value;
         this.value = signatureComponents.secondWebsite;
@@ -548,45 +549,8 @@ $( document ).ready( function() {
             $( "#" + id ).alert( "close" );
             window.clearInterval( dismissTimer );
             
-        }, 6000 );
+        }, 10000 );
         
     }
     
 } );
-
-function titleCase( str ) {
-    
-    let splitStr = str.toLowerCase().split( " " );
-    let skipWords = ["of", "the"];
-    
-    for ( let i = 0; i < splitStr.length; i++ ) {
-    
-        if ( !skipWords.includes( splitStr[i] ) ) {
-            
-            splitStr[i] = splitStr[i].charAt( 0 ).toUpperCase() + splitStr[i].substring( 1 );
-            
-        }
-           
-    }
-    
-    return splitStr.join( " " );
-    
-}
-
-function selectText( id ) {
-    
-    let sel, range;
-    let el = document.getElementById(id);
-
-    if ( window.getSelection && document.createRange ) { 
-        
-        sel = window.getSelection();
-        
-        range = document.createRange(); //range object
-        range.selectNodeContents( el ); //sets Range
-        sel.removeAllRanges(); //remove all ranges from selection
-        sel.addRange( range );
-        
-    }
-    
-}

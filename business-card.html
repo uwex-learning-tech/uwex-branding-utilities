@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Card Request - UW Extended Campus</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="all" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet" media="all" />
+    <link href="css/card.css" rel="stylesheet" media="all" />
+    <script src="scripts/jquery.js" type="text/javascript"></script>
+    <script src="scripts/inputmask.js" type="text/javascript"></script>
+    <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="scripts/common.js" type="text/javascript"></script>
+    <script src="scripts/card.js" type="text/javascript"></script>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
+        <span class="navbar-brand mb-0 h1">University of Wisconsin Extended Campus</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="email-signature.html">Email Signature</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="business-card.html">Business Card <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container-fluid" role="main">
+        
+        <div class="row">
+            
+            <article class="content-body col-lg-8 pt-3 pl-4 pr-4" role="article">
+                
+                <h1>Business Card Request</h1>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                
+                <p><small><span class="text-danger">*</span> Required</small></p>
+                
+                <form id="businessCardForm" role="form" class="needs-validation mb-3" novalidate autocomplete="off">
+                    
+                    <div class="form-row">
+                    
+                        <div class="form-group col-lg-4">
+                            <label for="firstNameInput">First Name<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="firstNameInput" required>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Required!</div>
+                        </div>
+                        
+                        <div class="form-group col-lg-2">
+                            <label for="mInitialInput">Middle Initial</label>
+                            <input type="text" class="form-control" id="mInitialInput">
+                        </div>
+                        
+                        <div class="form-group col-lg-4">
+                            <label for="lastNameInput">Last Name<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="lastNameInput" required>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Required!</div>
+                        </div>
+                        
+                        <div class="form-group col-lg-2">
+                            <label for="credentialInput">Credential</label>
+                            <input type="text" class="form-control" id="credentialInput" placeholder="Ph.D., M.B.A.">
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="titleInput">Job Title<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="titleInput" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Required!</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="businessUnitInput">Business Unit</label>
+                        <input type="text" class="form-control" id="businessUnitInput">
+                    </div>
+                    
+                    <div class="form-row">
+                        
+                        <div class="col-lg-6">
+                            <label for="emailInput">Email<span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="emailInput" aria-label="Email" aria-describedby="emailInput" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">@uwex.edu</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-lg-6">
+                            <label for="phoneInput">Phone Number</label>
+                            <input type="tel" class="form-control" id="phoneInput">
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="form-row">
+                        
+                        <div class="col-lg-12">
+                            <h4 class="form-text">Websites</h4>
+                            <p class="form-text">The UW Extended Campus website (ce.uwex.edu) will be added automatically to your business card so you DO NOT need to add it here. Other websites such as program websites can be added.</p>
+                        </div>
+                        
+                        <div class="form-group col-lg-6">
+                            <label for="websiteOneInput">Website 1</label>
+                            <input type="text" class="form-control" id="websiteOneInput" placeholder="datasciencedegree.wisconsin.edu">
+                            <div class="invalid-feedback">Website 1 is now required, because Website 2 field is set! If there is only one website, please enter it in the Website 1 field.</div>
+                        </div>
+                        
+                        <div class="form-group col-lg-6">
+                            <label for="websiteTwoInput">Website 2</label>
+                            <input type="text" class="form-control" id="websiteTwoInput" placeholder="appliedcomputing.wisconsin.edu">
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="input-group">
+                        <input id="submitBtn" type="submit" value="Submit Request" class="btn btn-dark custom-red" />
+                        <input id="clearBtn" type="button" value="Clear" class="btn btn-link text-decoration-none" />
+                    </div>
+                    
+                </form>
+                
+            </article>
+            
+            <aside class="side col-lg-4 pt-3 pl-4 pr-4 border-left bg-light" role="complementary">
+                
+                <h4 class="font-weight-lighter text-secondary border-bottom">Preview</h4>
+                
+                <p class="mb-1"><small class="text-muted">Front</small></p>
+                
+                <div class="preview front mb-3">
+                    <div class="top">
+                        
+                        <span class="fullName"><span id="firstName" class="text-muted">First Name</span> <span id="middleInitial" class="d-none text-muted">Middle Initial</span> <span id="lastName" class="text-muted">Last Name</span><span id="credential" class="d-none text-muted">, Credential</span></span>
+                        
+                        <br>
+                        
+                        <span id="title" class="text-muted">Job Title</span> <span id="businessUnit" class="d-none text-muted">, Business Unit</span>
+                        
+                        <br>
+                        
+                        <span id="org">University of Wisconsin Extended Campus</span>
+                        
+                    </div>
+                        
+                    <div class="bottom">
+                        
+                        <span class="contactInfo">
+                            <span id="email" class="text-muted">first.last@uwex.edu</span> <span id="phoneOptional" class="d-none text-muted">| 123.456.7890</span>
+                        </span>
+                        
+                        <br>
+                        
+                        ce.uwex.edu<br>
+                        
+                        <span id="websites" class="d-none">
+                            <span id="websiteOne" class="d-none text-muted">Website 1</span>
+                            <br>
+                            <span id="websiteTwo" class="d-none text-muted">Website 2</span>
+                        </span>
+                          
+                    </div>
+
+                </div>
+                
+                <p class="mb-1"><small class="text-muted">Back</small></p>
+                
+                <div class="preview back"></div>
+                
+                <p class="mt-3"><small class="text-muted"><em>Preview is not up-to-scale.</em></small></p>
+                
+            </aside>
+            
+        </div>
+
+    </div>
+    
+    <footer class="border-top pt-2 pl-4 pr-4 pb-2 bg-light" role="contentinfo">
+        <p class="mb-0"><small>&copy; 2019. University of Wisconsin Extended Campus. All rights reserved.</small></p>
+    </footer>
+    
+</body>
+</html>

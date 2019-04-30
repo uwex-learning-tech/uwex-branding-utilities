@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Signature - UW Extended Campus</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="all" />
+    <link href="css/common.css" rel="stylesheet" media="all" />
+    <link href="css/email.css" rel="stylesheet" media="all" />
+    <script src="scripts/jquery.js" type="text/javascript"></script>
+    <script src="scripts/inputmask.js" type="text/javascript"></script>
+    <script src="scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="scripts/common.js" type="text/javascript"></script>
+    <script src="scripts/email.js" type="text/javascript"></script>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
+        <span class="navbar-brand mb-0 h1">University of Wisconsin Extended Campus</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="email-signature.html">Email Signature <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="business-card.html">Business Card</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container-fluid" role="main">
+        
+        <div class="row">
+            
+            <article class="content-body col-lg-8 pt-3 pl-4 pr-4" role="article">
+                
+                <h1>Email Signature</h1>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                
+                <p><small><span class="text-danger">*</span> Required</small></p>
+                
+                <form id="signatureForm" role="form" class="needs-validation mb-3" novalidate autocomplete="off">
+                    
+                    <div class="form-row">
+                    
+                        <div class="form-group col-lg-4">
+                            <label for="firstNameInput">First Name<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="firstNameInput" required>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Required!</div>
+                        </div>
+                        
+                        <div class="form-group col-lg-2">
+                            <label for="mInitialInput">Middle Initial</label>
+                            <input type="text" class="form-control" id="mInitialInput">
+                        </div>
+                        
+                        <div class="form-group col-lg-4">
+                            <label for="lastNameInput">Last Name<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="lastNameInput" required>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Required!</div>
+                        </div>
+                        
+                        <div class="form-group col-lg-2">
+                            <label for="credentialInput">Credential</label>
+                            <input type="text" class="form-control" id="credentialInput" placeholder="Ph.D., M.B.A.">
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="titleInput">Job Title 1<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="titleInput" required>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Required!</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="titleOptionalInput">Job Title 2</label>
+                        <input type="text" class="form-control" id="titleOptionalInput">
+                    </div>
+                    
+                    <div class="form-row">
+                        
+                        <div class="form-group col-lg-6">
+                            <label for="businessUnitInput">1st Business Unit or Program<span class="text-danger">*</span></span></label>
+                            <input type="text" class="form-control" id="businessUnitInput" required>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Required!</div>
+                        </div>
+                        
+                        <div class="form-group col-lg-6">
+                            <label for="programWebsiteInput">Website</label>
+                            <input type="text" class="form-control" id="programWebsiteInput">
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="form-row">
+                        
+                        <div class="form-group col-lg-6">
+                            <label for="businessUnitOptionalInput">2nd Business Unit or Program</label>
+                            <input type="text" class="form-control" id="businessUnitOptionalInput">
+                            <div class="invalid-feedback">Required because program website is set!</div>
+                        </div>
+                        
+                        <div class="form-group col-lg-6">
+                            <label for="programWebsiteOptionalInput">Website</label>
+                            <input type="text" class="form-control" id="programWebsiteOptionalInput">
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="form-row">
+                        
+                        <div class="form-group col-lg-6">
+                            <label for="phoneInput">Phone Number</label>
+                            <input type="tel" class="form-control" id="phoneInput">
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <label for="emailInput">Email</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="emailInput" aria-label="Email" aria-describedby="emailInput">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">@uwex.edu</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="input-group">
+                        <input id="submitBtn" type="submit" value="Get Signature!" class="btn btn-dark custom-red" />
+                        <input id="clearBtn" type="button" value="Clear" class="btn btn-link text-decoration-none" />
+                    </div>
+                    
+                </form>
+                
+            </article>
+            
+            <aside class="side col-lg-4 pt-3 pl-4 pr-4 border-left bg-light" role="complementary">
+                
+                <h4 class="font-weight-lighter text-secondary border-bottom">Preview</h4>
+                
+                <div id="preview">
+                    <p>
+                        <strong>
+                            <span id="firstName" class="text-muted">First Name</span> <span id="middleInitial" class="d-none text-muted">Middle Initial</span> <span id="lastName" class="text-muted">Last Name</span><span id="credential" class="d-none text-muted">, Credential</span><br>
+                            <span id="title" class="text-muted">Job Title 1</span><br>
+                            <span id="titleOptional" class="d-none text-muted">Job Title 2<br></span>
+                        </strong>
+                        
+                        <span id="businessUnit" class="text-muted">Business Unit or Program</span> <span id="programWebsite" class="d-none text-muted">| Website</span><br>
+                        <span id="2ndBusinessUnit" class="d-none"><span id="businessUnitOptional" class="text-muted d-none">2nd Business Unit or Program</span> <span id="programWebsiteOptional" class="text-muted d-none">| Website</span><br></span>
+                        <span id="phoneOptional" class="d-none text-muted">(123) 456-7890 |</span> <span id="email" class="d-none text-muted">first.last@uwex.edu |</span> ce.uwex.edu
+                    </p>
+                    <p>
+                        <img src="images/preview_logo.png" width="199px" height="auto" alt="University of Wisconsin Extended Campus" />
+                    </p>
+                </div>
+                
+                <div class="alert alert-warning" role="alert">
+                    Do not copy and paste the preview. Use the "<a class="getSignatureBtn custom-red-text" href="#">Get Signature!</a>" to generate and copy the signature.
+                </div>
+                
+                <h4 class="font-weight-lighter text-secondary border-bottom">Instructions</h4>
+                
+                <ol class="pl-4">
+                    <li>Click the "<a class="getSignatureBtn custom-red-text" href="#">Get Signature!</a>" to copy the email signature to the computer's clipboard.</li>
+                    <li>Paste (<code>Cmd(&#8984;)-V</code> or <code>Ctrl-V</code>) the signature to the email client's signature editor.</li>
+                </ol>
+                
+                <p class="mb-1">For instructions on how to add a signature to the email client, click the appropriate links below.
+                    <ul>
+                        <li><a href="https://support.office.com/en-us/article/create-and-add-a-signature-to-messages-8ee5d4f4-68fd-464a-a1c1-0e1c80bb27f2#ID0EAACAAA=Office_2007_-_2010" target="_blank">Microsoft Outlook</a></li>
+                        <li><a href="https://support.office.com/en-us/article/create-and-add-an-email-signature-in-outlook-on-the-web-5ff9dcfd-d3f1-447b-b2e9-39f91b074ea3" target="_blank">Microsoft Outlook 365</a> (the web app)</li>
+                        <li><a href="http://matt.coneybeare.me/how-to-make-an-html-signature-in-apple-mail-for-mojave-os-x-10-dot-14/" target="_blank">Apple Mail</a><p class="small small-text text-muted">The process to add an HTML signature to Apple Mail by copy and paste is complicated as it may involve system configurations. However, it can be done manually by following this <a href="https://www.lifewire.com/text-formatting-images-os-x-mail-1172889" target="_blank">how-to guide by lifewire</a>.</p></li>
+                    </ul>
+                </p>
+                
+                <div id="artboard" class="outlook"></div>
+                
+                <div class="alert alert-info " role="alert">
+                    Formatting and image are not retainable if the email client is composing messages in plain or rich text format. <a class="text-decoration-none" href="https://support.office.com/en-ie/article/change-the-message-format-to-html-rich-text-format-or-plain-text-338a389d-11da-47fe-b693-cf41f792fefa" target="_blank">By default, Microsoft Outlook is composing in HTML format.</a>
+                </div>
+                
+            </aside>
+            
+        </div>
+
+    </div>
+    
+    <footer class="border-top pt-2 pl-4 pr-4 pb-2 bg-light" role="contentinfo">
+        <p class="mb-0"><small>&copy; 2019. University of Wisconsin Extended Campus. All rights reserved.</small></p>
+    </footer>
+    
+</body>
+</html>
