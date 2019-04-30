@@ -24,10 +24,15 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 @import "compass/css3/box-shadow";
+@import "compass/css3/transform";
 
 body {
     
     .side {
+        
+        .scalable {
+            @include transform-origin( 0, 0 );
+        }
         
         .preview {
             
@@ -40,7 +45,6 @@ body {
             width: 282px;
             height: 157px;
             padding: 15px;
-            zoom: 1.5;
             
             @include single-box-shadow( 0, 0, 8px, 0, #ccc );
             
@@ -91,41 +95,8 @@ body {
             background-size: cover;
             width: 282px;
             height: 157px;
-            zoom: 1.5;
         }
            
-    }
-    
-}
-
-@media only screen and (min-width: 544px) {
-    
-    body {
-    
-        .side {
-            
-            .preview, .preview.back {
-                zoom: 1.75;
-            }
-                    
-        }
-        
-    }
-    
-}
-
-@media only screen and (min-width: 614px) {
-    
-    body {
-    
-        .side {
-            
-            .preview, .preview.back {
-                zoom: 2;
-            }
-                    
-        }
-        
     }
     
 }
@@ -136,8 +107,8 @@ body {
     
         .side {
             
-            .preview, .preview.back {
-                zoom: 1;
+            .scalable {
+                @include scale( 1 );
             }
                     
         }
@@ -152,8 +123,8 @@ body {
     
         .side {
             
-            .preview, .preview.back {
-                zoom: 1.25;
+            .scalable {
+                @include scale( 1.25 );
             }
                     
         }
@@ -168,8 +139,8 @@ body {
     
         .side {
             
-            .preview, .preview.back {
-                zoom: 1.5;
+            .scalable {
+                @include scale( 1.5 );
             }
                     
         }
