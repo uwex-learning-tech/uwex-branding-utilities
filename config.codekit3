@@ -25,6 +25,12 @@
 		"oAP": "/build/.gitignore",
 		"oF": 1
 		},
+	"/build": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "/build/build",
+		"oF": 0
+		},
 	"/business-card.html": {
 		"cB": 1,
 		"ft": 8192,
@@ -34,7 +40,9 @@
 		"oF": 0
 		},
 	"/config.rb": {
-		"ft": 131072,
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
 		"oA": 0,
 		"oAP": "/config.rb",
 		"oF": 0
@@ -264,6 +272,30 @@
 		"oF": 3,
 		"sC": 3,
 		"tS": 0
+		},
+	"/scripts/secrect.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/build/scripts/secrect.php",
+		"oF": 0
+		},
+	"/scripts/send.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/build/scripts/send.php",
+		"oF": 0
+		},
+	"/success.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/build/success.html",
+		"oF": 0
 		}
 	},
 "hooks": [
@@ -276,7 +308,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-yesBaby",
 	"iconImageWasSetByUser": 1,
-	"lastBuiltDate": 578340604.98117304
+	"lastBuiltDate": 578354275.74792194
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

@@ -347,11 +347,27 @@ $( document ).ready( function() {
         
         if ( businessCardComponents.valid ) {
             
+            businessCardComponents.recaptcha = grecaptcha.getResponse();
             
+            $.ajax( {
+                
+                type: 'POST',
+                url: $( "#businessCardForm" ).attr( 'action' ),
+                data: businessCardComponents
+                
+            } ).done( function( response ) {
+                
+                window.location.href = "success.html";
+                
+            } ).fail( function( data ) {
+                
+                alert( "error", data.responseText );
+                
+            } );
             
         } else {
             
-            alertError();
+            alert( "missing", "" );
             
         }
 
@@ -380,13 +396,25 @@ $( document ).ready( function() {
         
     }
     
-    function alertError() {
+    function alert( type, errMsg ) {
         
         let id = "formError";
-        let msg = "<strong>Oops!</strong> Please enter all required information.";
+        let msg = "";
         let tag = "danger";
         
-        $( "#submitBtn" ).parent().before( "<div id=\"" + id + "\" class=\"alert alert-" + tag + " alert-dismissible fade show\" role=\"alert\">" + msg+ "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>" );
+        switch ( type ) {
+            
+            case "missing":
+            msg = "<strong>Oops!</strong> Please enter all of the required fields.";
+            break;
+            
+            case "error":
+            msg = "<strong>Uh-oh!</strong> Not able to submit your request. " + errMsg;
+            break;
+            
+        }
+        
+        $( "#submitBtn" ).parent().before( "<div id=\"" + id + "\" class=\"alert alert-" + tag + " alert-dismissible fade show mt-3\" role=\"alert\">" + msg+ "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>" );
         
         let dismissTimer = window.setTimeout( function() {
 
