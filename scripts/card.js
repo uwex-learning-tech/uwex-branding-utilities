@@ -199,7 +199,7 @@ $( document ).ready( function() {
         businessCardComponents.businessUnit = titleCase( value );
         this.value = businessCardComponents.businessUnit;
         
-        $( "#businessUnit" ).html( businessCardComponents.businessUnit ).removeClass( "text-muted mark" );
+        $( "#businessUnit" ).html( ", " + businessCardComponents.businessUnit ).removeClass( "text-muted mark" );
         
         if ( value.length === 0 ) {
             this.value = "";

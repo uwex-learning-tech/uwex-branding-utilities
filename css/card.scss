@@ -23,6 +23,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+@import "compass/css3/box-shadow";
+
 body {
     
     .side {
@@ -39,6 +41,8 @@ body {
             height: 157px;
             padding: 15px;
             zoom: 1.5;
+            
+            @include single-box-shadow( 0, 0, 8px, 0, #ccc );
             
             .top {
                 
