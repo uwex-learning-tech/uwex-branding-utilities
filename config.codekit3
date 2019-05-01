@@ -40,7 +40,9 @@
 		"oF": 0
 		},
 	"/config.rb": {
-		"ft": 131072,
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
 		"oA": 0,
 		"oAP": "/config.rb",
 		"oF": 0
@@ -286,14 +288,6 @@
 		"oA": 0,
 		"oAP": "/build/scripts/send.php",
 		"oF": 0
-		},
-	"/success.html": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/build/success.html",
-		"oF": 0
 		}
 	},
 "hooks": [
@@ -306,7 +300,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-yesBaby",
 	"iconImageWasSetByUser": 1,
-	"lastBuiltDate": 578362853.25996399
+	"lastBuiltDate": 578425968.949736
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

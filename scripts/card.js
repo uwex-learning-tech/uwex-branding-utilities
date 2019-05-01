@@ -357,7 +357,7 @@ $( document ).ready( function() {
                 
             } ).done( function( response ) {
                 
-                window.location.href = "success.html";
+                displayResult();
                 
             } ).fail( function( data ) {
                 
@@ -422,6 +422,46 @@ $( document ).ready( function() {
             window.clearInterval( dismissTimer );
             
         }, 10000 );
+        
+    }
+    
+    function displayResult() {
+        
+        $( $( ".content-body" ).parent() ).addClass( "d-none" );
+        $( "#result" ).removeClass( "d-none" ).addClass( "d-flex" );
+        
+        let fullName = businessCardComponents.firstName + ( businessCardComponents.middleInitial.length ? " " + businessCardComponents.middleInitial + " " : " " ) + businessCardComponents.lastName;
+        let credential = businessCardComponents.credential.length ? ", " + businessCardComponents.credential : "";
+        let businessUnit = businessCardComponents.businessUnit.length ? ", " + businessCardComponents.businessUnit : "";
+        let phoneNumber = businessCardComponents.phoneNumber.length ? " | " + businessCardComponents.phoneNumber : "";
+        let websiteOne = businessCardComponents.firstWebsite.length ? businessCardComponents.firstWebsite : "";
+        let websiteTwo = businessCardComponents.secondWebsite.length ? businessCardComponents.secondWebsite : "";
+        
+        $( "#card-preview .front .fullName" ).html( fullName );
+        $( "#card-preview .front .credential" ).html( credential );
+        $( "#card-preview .front .jobTitle" ).html( businessCardComponents.jobTitle );
+        $( "#card-preview .front .businessUnit" ).html( businessUnit );
+        $( "#card-preview .front .emailAddress" ).html( businessCardComponents.email );
+        $( "#card-preview .front .phoneNumber" ).html( phoneNumber );
+        $( "#card-preview .front .websiteOne" ).html( websiteOne );
+        $( "#card-preview .front .websiteTwo" ).html( websiteTwo );
+        
+        // on animation
+        $( "#card-preview" ).addClass( "slide-in-left" );
+        $( "#card-preview" ).on( "webkitAnimationEnd animationend", function() {
+            
+            $( this ).removeClass( "slide-in-left" ).addClass( "rotate-vert-center-infinite" );
+            $( "#result .thankyou" ).removeClass( "invisible" ).addClass( "visible bounce-top" );
+            $( this ).off();
+    
+        } );
+        
+        $( "#result .thankyou" ).on( "webkitAnimationEnd animationend", function() {
+            
+            $( "#result .msg" ).removeClass( "invisible" ).addClass( "visible fade-in-bottom" )
+            $( this ).off();
+            
+        } );
         
     }
     
