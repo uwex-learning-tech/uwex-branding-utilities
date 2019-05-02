@@ -25,6 +25,12 @@
 		"oAP": "/build/.gitignore",
 		"oF": 1
 		},
+	"/build": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "/build/build",
+		"oF": 0
+		},
 	"/business-card.html": {
 		"cB": 1,
 		"ft": 8192,
@@ -34,7 +40,9 @@
 		"oF": 0
 		},
 	"/config.rb": {
-		"ft": 131072,
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
 		"oA": 0,
 		"oAP": "/config.rb",
 		"oF": 0
@@ -292,7 +300,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-yesBaby",
 	"iconImageWasSetByUser": 1,
-	"lastBuiltDate": 578510877.25457799
+	"lastBuiltDate": 578526345.77936196
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

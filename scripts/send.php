@@ -58,7 +58,7 @@
                 date_default_timezone_set("America/Chicago");
                 
                 // Set the recipient email address.
-                $recipient = "ethan.lin@uwex.edu";
+                $recipient = EMAIL_RECIPIENT;
         
                 // Set the email subject.
                 $subject = "Business Card Request - $firstName $lastName";
