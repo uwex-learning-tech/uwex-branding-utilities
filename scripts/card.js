@@ -347,21 +347,29 @@ $( document ).ready( function() {
         
         if ( businessCardComponents.valid ) {
             
-            businessCardComponents.recaptcha = grecaptcha.getResponse();
+            grecaptcha.ready( function() {
+                
+                grecaptcha.execute('6Leld6EUAAAAADFAT4pmzJDYt9zOHgOtSFX_4uLV', {action: 'homepage'} ).then( function( token ) {
+                    
+                    businessCardComponents.recaptcha = token;
             
-            $.ajax( {
-                
-                type: 'POST',
-                url: $( "#businessCardForm" ).attr( 'action' ),
-                data: businessCardComponents
-                
-            } ).done( function( response ) {
-                
-                displayResult();
-                
-            } ).fail( function( data ) {
-                
-                alert( "error", data.responseText );
+                    $.ajax( {
+                        
+                        type: 'POST',
+                        url: $( "#businessCardForm" ).attr( 'action' ),
+                        data: businessCardComponents
+                        
+                    } ).done( function( response ) {
+                        
+                        displayResult();
+                        
+                    } ).fail( function( data ) {
+                        
+                        alert( "error", data.responseText );
+                        
+                    } );
+                    
+                } );
                 
             } );
             
