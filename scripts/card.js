@@ -447,10 +447,10 @@ $( document ).ready( function() {
         $( "#card-preview .front .websiteTwo" ).html( websiteTwo );
         
         // on animation
-        $( "#card-preview" ).addClass( "slide-in-left" );
+        $( "#card-preview" ).addClass( "swirl-in-fwd" );
         $( "#card-preview" ).on( "webkitAnimationEnd animationend", function() {
             
-            $( this ).removeClass( "slide-in-left" ).addClass( "rotate-vert-center-infinite" );
+            $( this ).removeClass( "swirl-in-fwd" ).addClass( "rotate-vert-center-infinite" );
             $( "#result .thankyou" ).removeClass( "invisible" ).addClass( "visible bounce-top" );
             $( this ).off();
     

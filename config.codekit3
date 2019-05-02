@@ -25,12 +25,6 @@
 		"oAP": "/build/.gitignore",
 		"oF": 1
 		},
-	"/build": {
-		"ft": 65536,
-		"oA": 1,
-		"oAP": "/build/build",
-		"oF": 0
-		},
 	"/business-card.html": {
 		"cB": 1,
 		"ft": 8192,
@@ -298,7 +292,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-yesBaby",
 	"iconImageWasSetByUser": 1,
-	"lastBuiltDate": 578505923.04181695
+	"lastBuiltDate": 578510148.23472202
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
