@@ -40,9 +40,7 @@
 		"oF": 0
 		},
 	"/config.rb": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
+		"ft": 131072,
 		"oA": 0,
 		"oAP": "/config.rb",
 		"oF": 0
@@ -300,7 +298,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-yesBaby",
 	"iconImageWasSetByUser": 1,
-	"lastBuiltDate": 578425968.949736
+	"lastBuiltDate": 578505923.04181695
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
