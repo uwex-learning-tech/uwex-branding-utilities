@@ -162,6 +162,17 @@
 		"oT": 1,
 		"q": 100
 		},
+	"/images/uwex_logo_v2.png": {
+		"ft": 32768,
+		"iS": 8698,
+		"oA": 0,
+		"oAP": "/build/images/uwex_logo_v2.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 1,
+		"oT": 1,
+		"q": 100
+		},
 	"/index.html": {
 		"cB": 1,
 		"ft": 8192,
@@ -298,7 +309,7 @@
 	"displayValueWasSetByUser": 1,
 	"iconImageName": "meme-yesBaby",
 	"iconImageWasSetByUser": 1,
-	"lastBuiltDate": 579106999.70281601
+	"lastBuiltDate": 579116674.89679599
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
