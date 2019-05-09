@@ -393,13 +393,11 @@ $( document ).ready( function() {
         
         if ( businessCardComponents.firstName.length == 0 || businessCardComponents.lastName.length == 0 ) {
             
-            $( "#email" ).addClass( "d-none" );
             $( "#emailInput" ).val( "" ).blur();
             return;
             
         }
         
-        $( "#email" ).removeClass( "d-none" );
         $( "#emailInput" ).val( businessCardComponents.firstName.toLowerCase() + "." + businessCardComponents.lastName.toLowerCase() ).blur();
         
     }
