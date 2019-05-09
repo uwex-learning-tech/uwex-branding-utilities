@@ -27,9 +27,17 @@ function titleCase( str ) {
     
     let splitStr = str.toLowerCase().split( " " );
     let skipWords = ["of", "the", "and"];
+    let acronyms = ["uw", "uwex"];
     
     for ( let i = 0; i < splitStr.length; i++ ) {
-    
+        
+        if ( acronyms.includes( splitStr[i] ) ) {
+            
+            splitStr[i] = splitStr[i].toUpperCase();
+            continue;
+            
+        }
+        
         if ( !skipWords.includes( splitStr[i] ) ) {
             
             splitStr[i] = splitStr[i].charAt( 0 ).toUpperCase() + splitStr[i].substring( 1 );
