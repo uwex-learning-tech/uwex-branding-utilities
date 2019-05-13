@@ -165,6 +165,11 @@ body {
                     line-height: 0;
                     font-size: 75%;
                     text-transform: uppercase;
+                    
+                    #credential {
+                        text-transform: none;
+                    }
+                    
                 }
                 
             }
