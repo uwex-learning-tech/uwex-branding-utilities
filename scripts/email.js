@@ -38,6 +38,7 @@ $( document ).ready( function() {
         "secondWebsite": "",
         "phoneNumber": "",
         "email": "",
+        "pronouns": "",
         "valid": false
     };
     
@@ -380,6 +381,30 @@ $( document ).ready( function() {
         }
         
     } );
+
+    // pronouns
+    $( "#pronounsInput" ).on( "focus", function() {
+        
+        $( "#pronounsOptional" ).removeClass( "d-none" ).addClass( "mark" );
+        
+    } );
+    
+    $( "#pronounsInput" ).on( "blur", function() {
+        
+        let value = this.value.trim().toLowerCase();
+        
+        signatureComponents.pronouns = "<a href='https://media.uwex.edu/content/uwex/resources/2020_248_ext_gender_neutral_guide.pdf' target='_blank'>Pronouns</a>: " + value;
+        this.value = value;
+        
+        $( "#pronounsOptional" ).html( signatureComponents.pronouns ).removeClass( "text-muted mark" );
+        
+        if ( value.length === 0 ) {
+            this.value = "";
+            signatureComponents.pronouns = "";
+            $( "#pronounsOptional" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "Pronouns:" );
+        }
+        
+    } );
     
     // form validation on submit and get signature button click
     $( "#signatureForm.needs-validation" ).on( "submit", function( event ) {
@@ -445,6 +470,7 @@ $( document ).ready( function() {
         let phoneNumber = signatureComponents.phoneNumber.length ? signatureComponents.phoneNumber + " | " : "";
         let email = signatureComponents.email.length ? signatureComponents.email + " | " : "";
         let contactInfo = phoneNumber + email + "ce.uwex.edu";
+        let pronouns = signatureComponents.pronouns;
         let image = "<img nosend='1' width='199px' height='63px' src='https://media.uwex.edu/app/tools/uwex-branding-utilities/images/logo.jpg' alt='University of Wisconsin Extended Campus' />";
         let signature = "";
         
@@ -467,7 +493,7 @@ $( document ).ready( function() {
         }
         
         signature += contactInfo;
-        
+        signature += "<br>" + pronouns;
         signature += "<br><br>" + image + "</p>";
         
         $( "#artboard" ).html( signature );
