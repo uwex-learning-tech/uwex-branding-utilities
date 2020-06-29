@@ -391,9 +391,9 @@ $( document ).ready( function() {
     
     $( "#pronounsInput" ).on( "blur", function() {
         
-        let value = this.value.trim().toLowerCase();
+        let value = this.value.trim();
         
-        signatureComponents.pronouns = "<a href='https://media.uwex.edu/content/uwex/resources/2020_248_ext_gender_neutral_guide.pdf' target='_blank'>Pronouns</a>: " + value;
+        signatureComponents.pronouns = "<a href='https://media.uwex.edu/content/uwex/resources/pronouns-usage-guide.pdf' target='_blank'>Pronouns</a>: " + value;
         this.value = value;
         
         $( "#pronounsOptional" ).html( signatureComponents.pronouns ).removeClass( "text-muted mark" );
