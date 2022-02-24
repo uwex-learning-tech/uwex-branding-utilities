@@ -7,7 +7,7 @@ Email Signature and Business Card
 @license: GNU GENERAL PUBLIC LICENSE v3
 
 Email signature and business card for UW Extended Campus
-Copyright (C) 2019  Ethan Lin and UW Extended Campus
+Copyright (C) 2022  Ethan Lin and UW Extended Campus
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -94,7 +94,8 @@ function trim( str, chara ) {
     
 }
 
+document.addEventListener('DOMContentLoaded', function(event) {
+    
+    document.getElementsByClassName( 'copyrightYear' )[0].innerHTML = new Date().getFullYear();
 
-
-
-
+});
