@@ -120,6 +120,19 @@
       "oAP" : "\/build\/email-signature.html",
       "oF" : 1
     },
+    "\/images\/back.png" : {
+      "ft" : 32768,
+      "iS" : 20375,
+      "oA" : 0,
+      "oAP" : "\/build\/images\/back.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "oT" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/images\/favicon.ico" : {
       "cB" : 0,
       "ft" : 8192,
@@ -323,7 +336,7 @@
   "projectSettings" : {
     "abortBuildOnError" : 1,
     "allowInjectionReloads" : 1,
-    "alwaysUseExternalServer" : 1,
+    "alwaysUseExternalServer" : 0,
     "animateCSSInjections" : 1,
     "autoBuildNewItems" : 0,
     "autoprefixerEnableIEGrid" : 0,

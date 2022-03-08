@@ -2,8 +2,8 @@
 Email Signature Generator
 
 @author: Ethan Lin
-@url: https://github.com/oel-mediateam/uwex-branding-utilities
-@version: 1.0.0
+@url: https://github.com/uwex-learning-tech/uwex-branding-utilities
+@version: 1.0.1
 @license: GNU GENERAL PUBLIC LICENSE v3
 
 Email signature generator for UW Extended Campus
@@ -369,7 +369,7 @@ $( document ).ready( function() {
         
         let value = this.value.trim().toLowerCase();
         
-        signatureComponents.email = value + "@uwex.edu";
+        signatureComponents.email = value + "@uwex.wisconsin.edu";
         this.value = value;
         
         $( "#email" ).html( signatureComponents.email + " |" ).removeClass( "text-muted mark" );
@@ -377,7 +377,7 @@ $( document ).ready( function() {
         if ( value.length === 0 ) {
             this.value = "";
             signatureComponents.email = "";
-            $( "#email" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "first.last@uwex.edu |" );
+            $( "#email" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "first.last@uwex.wisconsin.edu |" );
         }
         
     } );

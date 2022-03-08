@@ -2,8 +2,8 @@
 Business Card Request Form
 
 @author: Ethan Lin
-@url: https://github.com/oel-mediateam/uwex-branding-utilities
-@version: 1.0.0
+@url: https://github.com/uwex-learning-tech/uwex-branding-utilities
+@version: 1.0.1
 @license: GNU GENERAL PUBLIC LICENSE v3
 
 Business card request form for UW Extended Campus
@@ -321,7 +321,7 @@ $( document ).ready( function() {
         
         let value = this.value.trim().toLowerCase();
         
-        businessCardComponents.email = value + "@uwex.edu";
+        businessCardComponents.email = value + "@uwex.wisconsin.edu";
         this.value = value;
         
         $( "#email" ).html( businessCardComponents.email ).removeClass( "text-muted mark" );
@@ -330,7 +330,7 @@ $( document ).ready( function() {
             
             this.value = "";
             businessCardComponents.email = "";
-            $( "#email" ).addClass( "text-muted" ).removeClass( "mark" ).html( "first.last@uwex.edu" );
+            $( "#email" ).addClass( "text-muted" ).removeClass( "mark" ).html( "first.last@uwex.wisconsin.edu" );
             
         }
         

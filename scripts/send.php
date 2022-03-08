@@ -79,7 +79,7 @@
                 // Build the email headers.
                 $email_headers = "From: $firstName $lastName <$email>\r\n";
                 $email_headers .= "Reply-To: $email\r\n";
-        //         $email_headers .= "CC: susan@example.com\r\n";
+                $email_headers .= "Bcc: $email\r\n";
                 $email_headers .= "MIME-Version: 1.0\r\n";
                 $email_headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
                 
