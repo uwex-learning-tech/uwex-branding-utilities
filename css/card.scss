@@ -2,12 +2,12 @@
 Business Card Request Form
 
 @author: Ethan Lin
-@url: https://github.com/oel-mediateam/uwex-branding-utilities
-@version: 1.0.0
+@url: https://github.com/uwex-learning-tech/uwex-branding-utilities
+@version: 1.0.1
 @license: GNU GENERAL PUBLIC LICENSE v3
 
 Business card request form for UW Extended Campus
-Copyright (C) 2019  Ethan Lin and UW Extended Campus
+Copyright (C) 2022  Ethan Lin and UW Extended Campus
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -23,12 +23,6 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-@import "compass/css3/animation";
-@import "compass/css3/box-shadow";
-@import "compass/css3/transform";
-@import "compass/css3/background-size";
-@import "compass/css3/opacity";
-
 body {
     
     #body_content {
@@ -39,7 +33,7 @@ body {
         
         position: relative;
         background-color: transparent;
-        @include perspective( 1000 );
+        perspective: 1000;
         
         .msg {
             
@@ -62,15 +56,14 @@ body {
             background-color: transparent;
             margin: 1.5rem auto;
             
-            @include transform-style( preserve-3d );
-            @include single-box-shadow( 0, 0, 8px, 0, #ccc );
+            transform-style: preserve-3d;
+            box-shadow: 0 0 8px 0 #ccc;
             
             .front {
                 
                 background-image: url("../images/front.png");
                 z-index: 2;
-                
-                @include rotateY( 0deg );
+                transform: rotateY( 0deg );
                 
                 p {
                     width: 100%;
@@ -123,13 +116,13 @@ body {
                 background-repeat: no-repeat;
                 background-position: left top;
                 
-                @include background-size( cover );
-                @include backface-visibility( hidden );
+                background-size: cover;
+                backface-visibility: hidden;
             }
             
             .back.face {
                 display: block;
-                @include rotateY( 180deg );
+                transform: rotateY( 180deg );
             }
             
         }
@@ -139,7 +132,7 @@ body {
     .side {
         
         .scalable {
-            @include transform-origin( 0, 0 );
+            transform-origin: 0 0;
         }
         
         .preview {
@@ -153,8 +146,8 @@ body {
             background-repeat: no-repeat;
             background-position: left top;
             
-            @include background-size( cover );
-            @include single-box-shadow( 0, 0, 8px, 0, #ccc );
+            background-size: cover;
+            box-shadow: 0 0 8px 0 #ccc;
             
             .top {
                 
@@ -208,7 +201,7 @@ body {
             background-repeat: no-repeat;
             background-position: left top;
             
-            @include background-size( cover );
+            background-size: cover;
         }
            
     }
@@ -221,19 +214,19 @@ body {
  * ---------------------------------------------- */
 
 .fade-in-bottom {
-    @include animation(fade-in-bottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both);
+    animation: fade-in-bottom 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
 .swirl-in-fwd {
-    @include animation(swirl-in-fwd 0.6s ease-out both);
+    animation: swirl-in-fwd 0.6s ease-out both;
 }
 
 .rotate-vert-center-infinite {
-    @include animation(rotate-vert-center 10s cubic-bezier(0.455, 0.030, 0.515, 0.955) 2s infinite both);
+    animation: rotate-vert-center 10s cubic-bezier(0.455, 0.03, 0.515, 0.955) 2s infinite both;
 }
 
 .bounce-top {
-    @include animation(bounce-top 1s both);
+    animation: bounce-top 1s both;
 }
 
 /**
@@ -241,89 +234,82 @@ body {
  * animation
  * ----------------------------------------
  */
-@include keyframes( bounce-top ) {
-    
+
+@keyframes bounce-top {
     0% {
-        @include translateY( -45px );
-        @include animation-timing-function( ease-in );
-        @include opacity( 1 );
+        transform: translateY(-45px);
+        animation-timing-function: ease-in;
+        opacity: 1
     }
-    
+
     24% {
-        @include opacity( 1 );
+        opacity: 1
     }
-    
+
     40% {
-        @include translateY( -24px );
-        @include animation-timing-function( ease-in );
+        transform: translateY(-24px);
+        animation-timing-function: ease-in;
     }
-    
+
     65% {
-        @include translateY( -12px );
-        @include animation-timing-function( ease-in );
+        transform: translateY(-12px);
+        animation-timing-function: ease-in;
     }
-    
+
     82% {
-        @include translateY( -6px );
-        @include animation-timing-function( ease-in );
+        transform: translateY(-6px);
+        animation-timing-function: ease-in;
     }
-    
+
     93% {
-        @include translateY( -4px );
-        @include animation-timing-function( ease-in );
+        transform: translateY(-4px);
+        animation-timing-function: ease-in;
     }
-    
+
     25%, 55%, 75%, 87% {
-        @include translateY( 0px );
-        @include animation-timing-function( ease-out );
+        transform: translateY(0px);
+        animation-timing-function: ease-out;
     }
-    
+
     100% {
-        @include translateY( 0px );
-        @include animation-timing-function( ease-out );
-        @include opacity( 1 );
+        transform: translateY(0px);
+        animation-timing-function: ease-out;
+        opacity: 1
     }
-    
 }
 
-@include keyframes( fade-in-bottom ) {
-    
+@keyframes fade-in-bottom {
     0% {
-        @include translateY( 25px );
-        @include opacity( 0 );
+        transform: translateY(25px);
+        opacity: 0
     }
-    
+
     100% {
-        @include translateY( 0 );
-        @include opacity( 1 );
+        transform: translateY(0);
+        opacity: 1
     }
-    
 }
 
-@include keyframes( rotate-vert-center ) {
-    
+@keyframes rotate-vert-center {
     0% {
-        @include rotateY( 0 );
+        transform: rotateY(0)
     }
-    
+
     100% {
-        @include rotateY( 360deg );
+        transform: rotateY(360deg)
     }
-    
 }
 
-@include keyframes( swirl-in-fwd ) {
-    
+@keyframes swirl-in-fwd {
     0% {
-        @include transform( rotate(-540deg) scale(0) );
-        @include opacity( 0 );
+        transform: rotate(-540deg) scale(0);
+        opacity: 0
     }
-    
+
     100% {
-        @include transform( rotate(0) scale(1) );
-        @include opacity( 1 );
+        transform: rotate(0) scale(1);
+        opacity: 1
     }
-    
 }
 
 
@@ -340,7 +326,7 @@ body {
         .side {
             
             .scalable {
-                @include scale( 1 );
+                transform: scale(1, 1);
             }
                     
         }
@@ -356,7 +342,7 @@ body {
         .side {
             
             .scalable {
-                @include scale( 1.25 );
+                transform: scale(1.25, 1.25);
             }
                     
         }
@@ -372,7 +358,7 @@ body {
         .side {
             
             .scalable {
-                @include scale( 1.5 );
+                transform: scale(1.5, 1.5);
             }
                     
         }

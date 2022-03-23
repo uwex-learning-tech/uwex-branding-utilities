@@ -129,6 +129,12 @@
                         <div class="form-group col-12 col-sm-6">
                             <label for="phoneInput">Phone Number</label>
                             <input type="tel" class="form-control" id="phoneInput">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" disabled id="phoneChangedNotice">
+                                <label class="form-check-label" for="phoneChangedNotice">
+                                    Include a phone number change notice
+                                </label>
+                            </div>
                         </div>
                         
                         <div class="col-12 col-sm-6">
@@ -138,6 +144,13 @@
                                 <div class="input-group-append">
                                     <span class="input-group-text">@uwex.wisconsin.edu</span>
                                 </div>
+                                
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" disabled id="emailChangedNotice">
+                                <label class="form-check-label" for="emailChangedNotice">
+                                    Include an email change notice
+                                </label>
                             </div>
                         </div>
                         
@@ -171,8 +184,8 @@
                         
                         <span id="businessUnit" class="text-muted">Business Unit or Program</span> <span id="programWebsite" class="d-none text-muted">| Website</span><br>
                         <span id="2ndBusinessUnit" class="d-none"><span id="businessUnitOptional" class="text-muted d-none">2nd Business Unit or Program</span> <span id="programWebsiteOptional" class="text-muted d-none">| Website</span><br></span>
-                        <span id="phoneOptional" class="d-none text-muted">(123) 456-7890 |</span> <span id="email" class="d-none text-muted">first.last@uwex.wisconsin.edu |</span> ce.uwex.edu<br>
-                        <span id="pronounsOptional" class="d-none text-muted">Pronouns:</span>
+                        <span id="phoneOptional" class="d-none text-muted">(123) 456-7890 |</span> <span id="email" class="d-none text-muted">first.last@uwex.wisconsin.edu |</span> uwex.wisconsin.edu<br><span class="d-none" id="phoneEmailChangedNoticeOptional"></span>
+                        <br class="d-none"><span id="pronounsOptional" class="d-none text-muted">Pronouns:</span>
                     </p>
                     <p>
                         <img src="images/preview_logo.png" width="199px" height="auto" alt="University of Wisconsin Extended Campus" />
@@ -194,7 +207,7 @@
                     <ul>
                         <li><a href="https://support.office.com/en-us/article/create-and-add-a-signature-to-messages-8ee5d4f4-68fd-464a-a1c1-0e1c80bb27f2#ID0EAACAAA=Office_2007_-_2010" target="_blank">Microsoft Outlook</a></li>
                         <li><a href="https://support.office.com/en-us/article/create-and-add-an-email-signature-in-outlook-on-the-web-5ff9dcfd-d3f1-447b-b2e9-39f91b074ea3" target="_blank">Microsoft Outlook 365</a> (the web app)</li>
-                        <li><a href="http://matt.coneybeare.me/how-to-make-an-html-signature-in-apple-mail-for-mojave-os-x-10-dot-14/" target="_blank">Apple Mail</a><p class="small small-text text-muted">The process to add an HTML signature to Apple Mail by copy and paste is complicated as it may involve system configurations. However, it can be done manually by following this <a href="https://www.lifewire.com/text-formatting-images-os-x-mail-1172889" target="_blank">how-to guide by lifewire</a>.</p></li>
+                        <li><a href="https://matt.coneybeare.me/how-to-make-an-html-signature-in-apple-mail-for-macos-catalina-10-dot-15/" target="_blank">Apple Mail</a><p class="small small-text text-muted">The process to add an HTML signature to Apple Mail by copy and paste is complicated as it may involve system configurations. However, it can be done manually by following this <a href="https://www.lifewire.com/text-formatting-images-os-x-mail-1172889" target="_blank">how-to guide by lifewire</a>.</p></li>
                     </ul>
                 </p>
                 

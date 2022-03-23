@@ -38,6 +38,7 @@ $( document ).ready( function() {
         "secondWebsite": "",
         "phoneNumber": "",
         "email": "",
+        "changeNotice": "",
         "pronouns": "",
         "valid": false
     };
@@ -354,6 +355,9 @@ $( document ).ready( function() {
             this.value = "";
             signatureComponents.phoneNumber = "";
             $( "#phoneOptional" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "(123) 456-7890 |" );
+            $( '#phoneChangedNotice' ).prop( 'disabled', true );
+        } else {
+            $( '#phoneChangedNotice' ).prop( 'disabled', false );
         }
         
     } );
@@ -378,8 +382,70 @@ $( document ).ready( function() {
             this.value = "";
             signatureComponents.email = "";
             $( "#email" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "first.last@uwex.wisconsin.edu |" );
+            $( '#emailChangedNotice' ).prop( 'disabled', true );
+        } else {
+            $( '#emailChangedNotice' ).prop( 'disabled', false );
         }
         
+    } );
+
+    // change notice
+    $( "#phoneChangedNotice" ).on( 'change', function( evt ) {
+        
+        let emailCheckbox = $( "#emailChangedNotice" )[0];
+        let messageContainer = $( "#phoneEmailChangedNoticeOptional" );
+
+        if ( evt.currentTarget.checked || emailCheckbox.checked ) {
+            messageContainer.removeClass( "d-none" );
+            messageContainer.next().removeClass( "d-none" );
+        } else {
+            messageContainer.addClass( "d-none" );
+            messageContainer.next().addClass( "d-none" );
+        }
+
+        if ( evt.currentTarget.checked ) {
+            messageContainer.html( "*Check out my new phone number!" );
+        } else if ( emailCheckbox.checked ) {
+            messageContainer.html( "*Check out my new email address!" );
+        } else {
+            messageContainer.html( "" );
+        }
+
+        if ( evt.currentTarget.checked && emailCheckbox.checked ) {
+            messageContainer.html( "*Check out my new phone number and email address!" );
+        }
+
+        signatureComponents.changeNotice = messageContainer.text();
+
+    } );
+
+    $( "#emailChangedNotice" ).on( 'change', function( evt ) {
+        
+        let phoneCheckbox = $( "#phoneChangedNotice" )[0];
+        let messageContainer = $( "#phoneEmailChangedNoticeOptional" );
+
+        if ( evt.currentTarget.checked || phoneCheckbox.checked ) {
+            messageContainer.removeClass( "d-none" );
+            messageContainer.next().removeClass( "d-none" );
+        } else {
+            messageContainer.addClass( "d-none" );
+            messageContainer.next().addClass( "d-none" );
+        }
+
+        if ( evt.currentTarget.checked ) {
+            messageContainer.html( "*Check out my new email address!" );
+        } else if ( phoneCheckbox.checked ) {
+            messageContainer.html( "*Check out my new phone number!" );
+        } else {
+            messageContainer.html( "" );
+        }
+
+        if ( evt.currentTarget.checked && phoneCheckbox.checked ) {
+            messageContainer.html( "*Check out my new phone number and email address!" );
+        }
+
+        signatureComponents.changeNotice = messageContainer.text();
+
     } );
 
     // pronouns
@@ -469,7 +535,7 @@ $( document ).ready( function() {
         let firstUnitProgram = signatureComponents.firstUnitProgram + ( signatureComponents.firstWebsite.length ? " | " + signatureComponents.firstWebsite : "" );
         let phoneNumber = signatureComponents.phoneNumber.length ? signatureComponents.phoneNumber + " | " : "";
         let email = signatureComponents.email.length ? signatureComponents.email + " | " : "";
-        let contactInfo = phoneNumber + email + "ce.uwex.edu";
+        let contactInfo = phoneNumber + email + "uwex.wisconsin.edu";
         let pronouns = signatureComponents.pronouns;
         let image = "<img nosend='1' width='199px' height='63px' src='https://media.uwex.edu/app/tools/uwex-branding-utilities/images/logo.jpg' alt='University of Wisconsin Extended Campus' />";
         let signature = "";
@@ -493,7 +559,15 @@ $( document ).ready( function() {
         }
         
         signature += contactInfo;
-        signature += "<br>" + pronouns;
+
+        if ( signatureComponents.changeNotice.length ) {
+            signature += "<br><b style='color:#f00;'>"  + signatureComponents.changeNotice + "</b>";
+        }
+
+        if ( pronouns.length ) {
+            signature += "<br>" + pronouns;
+        }
+        
         signature += "<br><br>" + image + "</p>";
         
         $( "#artboard" ).html( signature );
@@ -502,15 +576,29 @@ $( document ).ready( function() {
         
     }
     
-    
     function copyToClipboard() {
-        
-        selectText("artboard");
         
         try {
             
             // Now that we've selected the anchor text, execute the copy command  
-            var successful = document.execCommand('copy');  
+            let successful = false;
+
+            if ( !navigator.clipboard ) {
+
+                selectText("artboard");
+                successful = document.execCommand("copy");
+
+            } else {
+
+                try {
+                    navigator.clipboard.write($( "#artboard" ).html( signature ).html());
+                    successful = true;
+                } catch (err) {
+                    console.error('Failed to copy!', err)
+                    successful = false;
+                }
+
+            }
             
             if ( successful ) {
                 
@@ -575,7 +663,7 @@ $( document ).ready( function() {
             $( "#" + id ).alert( "close" );
             window.clearInterval( dismissTimer );
             
-        }, 10000 );
+        }, 6000 );
         
     }
     
