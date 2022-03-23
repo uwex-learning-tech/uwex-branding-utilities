@@ -11,13 +11,13 @@
         $credential = strip_tags( $_POST["credential"] );
         
         $jobTitle = strip_tags( $_POST["jobTitle"] );
-        $businessUnit = strip_tags( $_POST["businessUnit"] );
+        // $businessUnit = strip_tags( $_POST["businessUnit"] );
 
         $email = filter_var( $_POST["email"], FILTER_SANITIZE_EMAIL );
         $phoneNumber = strip_tags( $_POST["phoneNumber"] );
         
-        $firstWebsite = filter_var( $_POST["firstWebsite"], FILTER_SANITIZE_URL );
-        $secondWebsite = filter_var( $_POST["secondWebsite"], FILTER_SANITIZE_URL );
+        // $firstWebsite = filter_var( $_POST["firstWebsite"], FILTER_SANITIZE_URL );
+        // $secondWebsite = filter_var( $_POST["secondWebsite"], FILTER_SANITIZE_URL );
 
         // Check that data was sent to the mailer.
         if ( !filter_var( $email, FILTER_VALIDATE_EMAIL ) && isset( $_POST["recaptcha"] ) ) {
@@ -68,9 +68,10 @@
                 $email_content .= "<p>Hello,</p>";
                 $email_content .= "<p><b>$firstName $lastName</b> submitted a request for new business cards. The details for the business card are as follows:</p>";
                 $email_content .= "<p><b>First Name:</b> $firstName<br><b>Middle Initial:</b> $middleInitial<br><b>Last Name:</b> $lastName<br><b>Credential(s):</b> $credential</p>";
-                $email_content .= "<p><b>Job Title:</b> $jobTitle<br><b>Business Unit:</b> $businessUnit<p>";
+                // $email_content .= "<p><b>Job Title:</b> $jobTitle<br><b>Business Unit:</b> $businessUnit<p>";
+                $email_content .= "<p><b>Job Title:</b> $jobTitle</p>";
                 $email_content .= "<p><b>Email:</b> $email<br><b>Phone:</b> $phoneNumber</p>";
-                $email_content .= "<p><b>Website 1:</b> $firstWebsite<br><b>Website 2:</b> $secondWebsite</p>";
+                // $email_content .= "<p><b>Website 1:</b> $firstWebsite<br><b>Website 2:</b> $secondWebsite</p>";
                 $email_content .= "<p>If you have any questions and/or concerns about this request, please contact <b>$firstName $lastName</b> directly.</p>";
                 $email_content .= "<p><i>This email was generated on behalf of $firstName $lastName's request for a new business card. Replying to this email will send the message to $email.</i></p>";
                 $email_content .= "<p>Thank you.</p><p style='color: #ccc;'><small>" . date("m-d-Y h:ia") . "</small></p>";

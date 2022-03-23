@@ -127,7 +127,7 @@
       "oAP" : "\/build\/images\/back.png",
       "oF" : 0,
       "oIPL" : 0,
-      "opt" : 0,
+      "opt" : 1,
       "oT" : 1,
       "ou" : "lpckwebp-none",
       "q" : 100,
@@ -331,7 +331,7 @@
     "displayValueWasSetByUser" : 1,
     "iconImageName" : "meme-yesBaby",
     "iconImageWasSetByUser" : 1,
-    "lastBuiltDate" : 579475656.24523604
+    "lastBuiltDate" : 669766938.31288397
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,

@@ -25,15 +25,26 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 $( document ).ready( function() {
     
+    // let businessCardComponents = {
+    //     "firstName": "",
+    //     "middleInitial": "",
+    //     "lastName": "",
+    //     "credential": "",
+    //     "jobTitle": "",
+    //     "businessUnit": "",
+    //     "firstWebsite": "",
+    //     "secondWebsite": "",
+    //     "phoneNumber": "",
+    //     "email": "",
+    //     "valid": false
+    // };
+
     let businessCardComponents = {
         "firstName": "",
         "middleInitial": "",
         "lastName": "",
         "credential": "",
         "jobTitle": "",
-        "businessUnit": "",
-        "firstWebsite": "",
-        "secondWebsite": "",
         "phoneNumber": "",
         "email": "",
         "valid": false
@@ -186,103 +197,103 @@ $( document ).ready( function() {
     } );
     
     // business unit
-    $( "#businessUnitInput" ).on( "focus", function() {
+    // $( "#businessUnitInput" ).on( "focus", function() {
         
-        $( "#businessUnit" ).addClass( "mark" ).removeClass( "d-none" );
+    //     $( "#businessUnit" ).addClass( "mark" ).removeClass( "d-none" );
         
-    } );
+    // } );
     
-    $( "#businessUnitInput" ).on( "blur", function() {
+    // $( "#businessUnitInput" ).on( "blur", function() {
         
-        let value = this.value.trim();
+    //     let value = this.value.trim();
         
-        businessCardComponents.businessUnit = titleCase( value );
-        this.value = businessCardComponents.businessUnit;
+    //     businessCardComponents.businessUnit = titleCase( value );
+    //     this.value = businessCardComponents.businessUnit;
         
-        $( "#businessUnit" ).html( ", " + businessCardComponents.businessUnit ).removeClass( "text-muted mark" );
+    //     $( "#businessUnit" ).html( ", " + businessCardComponents.businessUnit ).removeClass( "text-muted mark" );
         
-        if ( value.length === 0 ) {
-            this.value = "";
-            businessCardComponents.businessUnit = "";
-            $( "#businessUnit" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( ", Business Unit" );
-        }
+    //     if ( value.length === 0 ) {
+    //         this.value = "";
+    //         businessCardComponents.businessUnit = "";
+    //         $( "#businessUnit" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( ", Business Unit" );
+    //     }
         
-    } );
+    // } );
     
     // 1st program website
-    $( "#websiteOneInput, #websiteTwoInput" ).on( "focus", function() {
+    // $( "#websiteOneInput, #websiteTwoInput" ).on( "focus", function() {
         
-        $( "#websites" ).removeClass( "d-none" );
+    //     $( "#websites" ).removeClass( "d-none" );
         
-        if ( this.id === "websiteOneInput" ) {
+    //     if ( this.id === "websiteOneInput" ) {
             
-            $( "#websiteOne" ).removeClass( "d-none" ).addClass( "mark" );
-            return;
+    //         $( "#websiteOne" ).removeClass( "d-none" ).addClass( "mark" );
+    //         return;
             
-        }
+    //     }
         
-        if ( this.id === "websiteTwoInput" ) {
+    //     if ( this.id === "websiteTwoInput" ) {
             
-            $( "#websiteOne" ).removeClass( "d-none" );
-            $( "#websiteTwo" ).removeClass( "d-none" ).addClass( "mark" );
+    //         $( "#websiteOne" ).removeClass( "d-none" );
+    //         $( "#websiteTwo" ).removeClass( "d-none" ).addClass( "mark" );
             
-            return;
+    //         return;
             
-        }
+    //     }
         
-    } );
+    // } );
     
-    $( "#websiteOneInput" ).on( "blur", function() {
+    // $( "#websiteOneInput" ).on( "blur", function() {
         
-        let value = trim( this.value.trim().toLowerCase().replace(/http(s)?:\/\//gi, ""), "/")
+    //     let value = trim( this.value.trim().toLowerCase().replace(/http(s)?:\/\//gi, ""), "/")
         
-        businessCardComponents.firstWebsite = value;
-        this.value = businessCardComponents.firstWebsite;
+    //     businessCardComponents.firstWebsite = value;
+    //     this.value = businessCardComponents.firstWebsite;
         
-        $( "#websiteOne" ).html( businessCardComponents.firstWebsite ).removeClass( "text-muted mark" );
+    //     $( "#websiteOne" ).html( businessCardComponents.firstWebsite ).removeClass( "text-muted mark" );
         
-        if ( value.length === 0 ) {
+    //     if ( value.length === 0 ) {
             
-            this.value = "";
-            businessCardComponents.firstWebsite = "";
-            $( "#websiteOne" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "Website 1" );
+    //         this.value = "";
+    //         businessCardComponents.firstWebsite = "";
+    //         $( "#websiteOne" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "Website 1" );
             
-        }
+    //     }
         
-    } );
+    // } );
     
-    $( "#websiteTwoInput" ).on( "blur", function() {
+    // $( "#websiteTwoInput" ).on( "blur", function() {
         
-        let value = trim( this.value.trim().toLowerCase().replace(/http(s)?:\/\//gi, ""), "/");
+    //     let value = trim( this.value.trim().toLowerCase().replace(/http(s)?:\/\//gi, ""), "/");
         
-        businessCardComponents.secondWebsite = value;
-        this.value = businessCardComponents.secondWebsite;
+    //     businessCardComponents.secondWebsite = value;
+    //     this.value = businessCardComponents.secondWebsite;
         
-        $( "#websiteTwo" ).html( businessCardComponents.secondWebsite ).removeClass( "text-muted mark" );
+    //     $( "#websiteTwo" ).html( businessCardComponents.secondWebsite ).removeClass( "text-muted mark" );
         
-        if ( value.length === 0 ) {
+    //     if ( value.length === 0 ) {
             
-            this.value = "";
-            businessCardComponents.secondWebsite = "";
-            $( "#websiteTwo" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "Website 2" );
+    //         this.value = "";
+    //         businessCardComponents.secondWebsite = "";
+    //         $( "#websiteTwo" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "Website 2" );
             
-            if ( $( "#websiteOneInput" ).val().length === 0 ) {
-                $( "#websiteOne" ).addClass( "d-none" );
-                $( "#websiteOneInput" ).attr( "required", false );
-            }
+    //         if ( $( "#websiteOneInput" ).val().length === 0 ) {
+    //             $( "#websiteOne" ).addClass( "d-none" );
+    //             $( "#websiteOneInput" ).attr( "required", false );
+    //         }
             
-        } else {
+    //     } else {
             
-            if ( $( "#websiteOneInput" ).val().length === 0 ) {
+    //         if ( $( "#websiteOneInput" ).val().length === 0 ) {
             
-                $( "#websiteOne" ).removeClass( "d-none" );
-                $( "#websiteOneInput" ).attr( "required", true );
+    //             $( "#websiteOne" ).removeClass( "d-none" );
+    //             $( "#websiteOneInput" ).attr( "required", true );
                 
-            }
+    //         }
             
-        }
+    //     }
         
-    } );
+    // } );
     
     // phone number
     $( "#phoneInput" ).on( "focus", function() {
@@ -359,7 +370,7 @@ $( document ).ready( function() {
                         url: $( "#businessCardForm" ).attr( 'action' ),
                         data: businessCardComponents
                         
-                    } ).done( function( response ) {
+                    } ).done( function() {
                         
                         displayResult();
                         
@@ -438,19 +449,19 @@ $( document ).ready( function() {
         
         let fullName = businessCardComponents.firstName + ( businessCardComponents.middleInitial.length ? " " + businessCardComponents.middleInitial + " " : " " ) + businessCardComponents.lastName;
         let credential = businessCardComponents.credential.length ? ", " + businessCardComponents.credential : "";
-        let businessUnit = businessCardComponents.businessUnit.length ? ", " + businessCardComponents.businessUnit : "";
+        // let businessUnit = businessCardComponents.businessUnit.length ? ", " + businessCardComponents.businessUnit : "";
         let phoneNumber = businessCardComponents.phoneNumber.length ? " | " + businessCardComponents.phoneNumber : "";
-        let websiteOne = businessCardComponents.firstWebsite.length ? businessCardComponents.firstWebsite : "";
-        let websiteTwo = businessCardComponents.secondWebsite.length ? businessCardComponents.secondWebsite : "";
+        // let websiteOne = businessCardComponents.firstWebsite.length ? businessCardComponents.firstWebsite : "";
+        // let websiteTwo = businessCardComponents.secondWebsite.length ? businessCardComponents.secondWebsite : "";
         
         $( "#card-preview .front .fullName" ).html( fullName );
         $( "#card-preview .front .credential" ).html( credential );
         $( "#card-preview .front .jobTitle" ).html( businessCardComponents.jobTitle );
-        $( "#card-preview .front .businessUnit" ).html( businessUnit );
+        // $( "#card-preview .front .businessUnit" ).html( businessUnit );
         $( "#card-preview .front .emailAddress" ).html( businessCardComponents.email );
         $( "#card-preview .front .phoneNumber" ).html( phoneNumber );
-        $( "#card-preview .front .websiteOne" ).html( websiteOne );
-        $( "#card-preview .front .websiteTwo" ).html( websiteTwo );
+        // $( "#card-preview .front .websiteOne" ).html( websiteOne );
+        // $( "#card-preview .front .websiteTwo" ).html( websiteTwo );
         
         // on animation
         $( "#card-preview" ).addClass( "swirl-in-fwd" );

@@ -89,7 +89,7 @@ body {
                 }
                 
                 .spacing {
-                    height: 80px;
+                    height: 35px;
                 }
                 
                 .bold {
@@ -103,7 +103,8 @@ body {
             }
             
             .back {
-                background-image: url("../images/back.png");
+                //background-image: url("../images/back.png");
+                background-color: #fff;
                 z-index: 1;
             }
             
@@ -111,11 +112,10 @@ body {
                 position: absolute;
                 width: 100%;
                 height: 100%;
-                padding: 15px 20px 33px;
+                padding: 110px 20px 33px;
                 text-align: left;
                 background-repeat: no-repeat;
                 background-position: left top;
-                
                 background-size: cover;
                 backface-visibility: hidden;
             }
@@ -138,14 +138,13 @@ body {
         .preview {
             
             width: 282px;
-            height: 157px;
-            padding: 15px;
+            height: 160px;
+            padding: 60px 15px 15px;
             font-family: 'Open Sans', sans-serif;
             color: #3d4643;
             background-image: url("../images/front.png");
             background-repeat: no-repeat;
             background-position: left top;
-            
             background-size: cover;
             box-shadow: 0 0 8px 0 #ccc;
             
@@ -169,7 +168,7 @@ body {
             
             .bottom {
                 
-                padding-top: 40px;
+                padding-top: 20px;
                 font-size: 60%;
                 line-height: 1.25;
                 
