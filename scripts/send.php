@@ -58,7 +58,8 @@
                 date_default_timezone_set("America/Chicago");
                 
                 // Set the recipient email address.
-                $recipient = EMAIL_RECIPIENT;
+                $recipient_email = EMAIL_RECIPIENT;
+                $recipient_name = EMAIL_RECIPIENT_NAME;
         
                 // Set the email subject.
                 $subject = "Business Card Request - $firstName $lastName";
@@ -74,18 +75,49 @@
                 // $email_content .= "<p><b>Website 1:</b> $firstWebsite<br><b>Website 2:</b> $secondWebsite</p>";
                 $email_content .= "<p>If you have any questions and/or concerns about this request, please contact <b>$firstName $lastName</b> directly.</p>";
                 $email_content .= "<p><i>This email was generated on behalf of $firstName $lastName's request for a new business card. Replying to this email will send the message to $email.</i></p>";
-                $email_content .= "<p>Thank you.</p><p style='color: #ccc;'><small>" . date("m-d-Y h:ia") . "</small></p>";
+                $email_content .= "<p>Thank you!</p><p style='color: #ccc;'><small>" . date("m-d-Y h:ia") . "</small></p>";
                 $email_content .= "</body></html>";
         
                 // Build the email headers.
                 $email_headers = "From: $firstName $lastName <$email>\r\n";
-                $email_headers .= "Reply-To: $email\r\n";
-                $email_headers .= "Bcc: $email\r\n";
+                $email_headers .= "Reply-To: $firstName $lastName <$email>\r\n";
                 $email_headers .= "MIME-Version: 1.0\r\n";
-                $email_headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+                $email_headers .= "Content-Type: text/html; charset=UTF-8\r\n";
                 
                 // Send the email.
-                if ( mail( $recipient, $subject, $email_content, $email_headers ) ) {
+                if ( mail( $recipient_email, $subject, $email_content, $email_headers ) ) {
+                    
+                    //http_response_code(200);
+                    
+                } else {
+                    
+                    // Set a 500 (internal server error) response code.
+                    http_response_code(500);
+                    echo "Oops! Something went wrong and we couldn't send your message.";
+                    
+                }
+
+                // Send confirmation email
+
+                $confirm_subject = "Business Card Request Confirmation";
+
+                $confirm_email_content = "<html><body>";
+                $confirm_email_content .= "<p>Hi $firstName,</p>";
+                $confirm_email_content .= "<p>Thank you for submitting your UWEX business card request. If you need to followup on your business card request, please reach out to <b>$recipient_name</b> at $recipient_email.</p>";
+                $confirm_email_content .= "<p>The details for the business card are as follows:</p>";
+                $confirm_email_content .= "<p><b>First Name:</b> $firstName<br><b>Middle Initial:</b> $middleInitial<br><b>Last Name:</b> $lastName<br><b>Credential(s):</b> $credential</p>";
+                $confirm_email_content .= "<p><b>Job Title:</b> $jobTitle</p>";
+                $confirm_email_content .= "<p><b>Email:</b> $email<br><b>Phone:</b> $phoneNumber</p>";
+                $confirm_email_content .= "<p><i>This is an auto-generated email. Please do not reply to this email.</i></p>";
+                $confirm_email_content .= "<p>Thank you!</p><p style='color: #ccc;'><small>" . date("m-d-Y h:ia") . "</small></p>";
+                $confirm_email_content .= "</body></html>";
+
+                $confirm_email_headers = "From: <no-reply@uwex.wisconsin.edu>\r\n";
+                $confirm_email_headers .= "Reply-To: no-reply@uwex.wisconsin.edu\r\n";
+                $confirm_email_headers .= "MIME-Version: 1.0\r\n";
+                $confirm_email_headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+                if ( mail( $email, $confirm_subject, $confirm_email_content, $confirm_email_headers ) ) {
                     
                     http_response_code(200);
                     
