@@ -580,29 +580,10 @@ $( document ).ready( function() {
         
         try {
             
-            if ( !navigator.clipboard ) {
-
-                let successful = false;
-
-                selectText( "artboard" );
-                successful = document.execCommand( "copy" );
-
-                if ( successful ) {
+            if ( navigator.clipboard && 
+            typeof( ClipboardItem ) != "undefined" && 
+            typeof( Blob ) != "undefined" ) {
                 
-                    alert( "success" );
-                    
-                } else {
-                    
-                    alert( "unsuccessful" );
-                    
-                }
-
-                // Remove the selections - NOTE: Should use
-                // removeRange(range) when it is supported  
-                window.getSelection().removeAllRanges();
-
-            } else {
-
                 const blobInput = new Blob( [signature], {type: "text/html" } );
                 const clipboardItemInput = new ClipboardItem( {'text/html' : blobInput } );
                 navigator.clipboard.write( [clipboardItemInput] ).then( function() {
@@ -610,6 +591,10 @@ $( document ).ready( function() {
                 }, function() {
                     alert( "unsuccessful" );
                 } );
+
+            } else {
+
+                copyToClipboardAlt();
 
             }
             
@@ -620,6 +605,27 @@ $( document ).ready( function() {
              
         }
         
+    }
+
+    function copyToClipboardAlt() {
+
+        let successful = false;
+
+        selectText( "artboard" );
+        successful = document.execCommand( "copy" );
+
+        if ( successful ) {
+        
+            alert( "success" );
+            
+        } else {
+            
+            alert( "unsuccessful" );
+            
+        }
+  
+        window.getSelection().removeAllRanges();
+
     }
     
     function alert( type ) {
@@ -651,7 +657,7 @@ $( document ).ready( function() {
             case "error":
                 id = "signatureError";
                 tag = "danger";
-                msg = "<strong>Please try a different web browser</strong> Your current web browser does not supports copying to clipboard.";
+                msg = "<strong>Please try a different web browser.</strong> Your current web browser does not supports copying to clipboard.";
             break;
                 
         }
