@@ -572,53 +572,51 @@ $( document ).ready( function() {
         
         $( "#artboard" ).html( signature );
         
-        copyToClipboard();
+        copyToClipboard( signature );
         
     }
     
-    function copyToClipboard() {
+    function copyToClipboard( signature ) {
         
         try {
             
-            // Now that we've selected the anchor text, execute the copy command  
-            let successful = false;
-
             if ( !navigator.clipboard ) {
 
-                selectText("artboard");
-                successful = document.execCommand("copy");
+                let successful = false;
 
-            } else {
+                selectText( "artboard" );
+                successful = document.execCommand( "copy" );
 
-                try {
-                    navigator.clipboard.write($( "#artboard" ).html( signature ).html());
-                    successful = true;
-                } catch (err) {
-                    console.error('Failed to copy!', err)
-                    successful = false;
+                if ( successful ) {
+                
+                    alert( "success" );
+                    
+                } else {
+                    
+                    alert( "unsuccessful" );
+                    
                 }
 
-            }
-            
-            if ( successful ) {
-                
-                alert( "success" );
-                
+                // Remove the selections - NOTE: Should use
+                // removeRange(range) when it is supported  
+                window.getSelection().removeAllRanges();
+
             } else {
-                
-                alert( "unsuccessful" );
-                
+
+                navigator.clipboard.writeText( signature ).then( function() {
+                    alert( "success" );
+                }, function() {
+                    alert( "unsuccessful" );
+                } );
+
             }
             
         } catch ( err ) {
             
+            console.error('Failed to copy!', err);
             alert( "error" );
              
         }
-        
-        // Remove the selections - NOTE: Should use
-        // removeRange(range) when it is supported  
-        window.getSelection().removeAllRanges();
         
     }
     
