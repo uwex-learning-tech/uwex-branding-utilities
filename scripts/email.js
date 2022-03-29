@@ -603,7 +603,9 @@ $( document ).ready( function() {
 
             } else {
 
-                navigator.clipboard.writeText( signature ).then( function() {
+                const blobInput = new Blob( [signature], {type: "text/html" } );
+                const clipboardItemInput = new ClipboardItem( {'text/html' : blobInput } );
+                navigator.clipboard.write( [clipboardItemInput] ).then( function() {
                     alert( "success" );
                 }, function() {
                     alert( "unsuccessful" );
