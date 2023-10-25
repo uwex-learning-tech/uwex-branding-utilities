@@ -3,7 +3,7 @@ Email Signature and Business Card
 
 @author: Ethan Lin
 @url: https://github.com/oel-mediateam/uwex-branding-utilities
-@version: 1.0.0
+@version: 1.0.1
 @license: GNU GENERAL PUBLIC LICENSE v3
 
 Email signature and business card for UW Extended Campus
@@ -22,6 +22,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+
+import '../css/common.scss';
 
 function titleCase( str ) {
     
@@ -99,3 +101,5 @@ document.addEventListener('DOMContentLoaded', function(event) {
     document.getElementsByClassName( 'copyrightYear' )[0].innerHTML = new Date().getFullYear();
 
 });
+
+export {titleCase, selectText, trim };

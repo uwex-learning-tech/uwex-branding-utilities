@@ -1,0 +1,48 @@
+{
+  "name": "uwex-branding-utilities",
+  "version": "1.0.1",
+  "description": "University of Wisconsin Extended Campus email signature generator and business card request form",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uwex-learning-tech/uwex-branding-utilities.git"
+  },
+  "keywords": [
+    "email",
+    "signature",
+    "business",
+    "card",
+    "form"
+  ],
+  "author": "Ethan Lin",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/uwex-learning-tech/uwex-branding-utilities/issues"
+  },
+  "homepage": "https://github.com/uwex-learning-tech/uwex-branding-utilities",
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "postcss-loader": "^7.3.3",
+    "sass": "~1.64.2",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "terser-webpack-plugin": "^5.3.9",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-merge": "^5.10.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "inputmask": "^5.0.8",
+    "jquery": "^3.7.1"
+  }
+}

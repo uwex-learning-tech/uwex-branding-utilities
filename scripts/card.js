@@ -3,11 +3,11 @@ Business Card Request Form
 
 @author: Ethan Lin
 @url: https://github.com/uwex-learning-tech/uwex-branding-utilities
-@version: 1.0.1
+@version: 1.0.2
 @license: GNU GENERAL PUBLIC LICENSE v3
 
 Business card request form for UW Extended Campus
-Copyright (C) 2022  Ethan Lin and UW Extended Campus
+Copyright (C) 2023  Ethan Lin and UW Extended Campus
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -23,21 +23,14 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-$( document ).ready( function() {
-    
-    // let businessCardComponents = {
-    //     "firstName": "",
-    //     "middleInitial": "",
-    //     "lastName": "",
-    //     "credential": "",
-    //     "jobTitle": "",
-    //     "businessUnit": "",
-    //     "firstWebsite": "",
-    //     "secondWebsite": "",
-    //     "phoneNumber": "",
-    //     "email": "",
-    //     "valid": false
-    // };
+import '../css/card.scss';
+import $ from "jquery";
+import Inputmask from "inputmask";
+import 'bootstrap/js/dist/alert';
+
+import { titleCase } from './common';
+
+$( function() {
 
     let businessCardComponents = {
         "firstName": "",
@@ -51,7 +44,7 @@ $( document ).ready( function() {
     };
     
     // enable phone number formatting
-    $( "#phoneInput" ).inputmask({"mask": "[999.999.9999][x[9999]{0,1}]{0,1}"});
+    Inputmask( "999.999.9999[x[9{1,4}]]" ).mask( document.getElementById( "phoneInput" ) );
     
     /* on form input changes */
     
@@ -101,14 +94,6 @@ $( document ).ready( function() {
         
         let value = this.value.replace(".", "").trim();
         let newValue = value;
-        
-/*
-        if ( value.length ) {
-            [...value].forEach( c => c != "." ? newValue += c + "." : newValue += "" );
-        } else {
-            newValue = value;
-        }
-*/
         
         businessCardComponents.middleInitial = newValue.toUpperCase();
         
@@ -196,105 +181,6 @@ $( document ).ready( function() {
         
     } );
     
-    // business unit
-    // $( "#businessUnitInput" ).on( "focus", function() {
-        
-    //     $( "#businessUnit" ).addClass( "mark" ).removeClass( "d-none" );
-        
-    // } );
-    
-    // $( "#businessUnitInput" ).on( "blur", function() {
-        
-    //     let value = this.value.trim();
-        
-    //     businessCardComponents.businessUnit = titleCase( value );
-    //     this.value = businessCardComponents.businessUnit;
-        
-    //     $( "#businessUnit" ).html( ", " + businessCardComponents.businessUnit ).removeClass( "text-muted mark" );
-        
-    //     if ( value.length === 0 ) {
-    //         this.value = "";
-    //         businessCardComponents.businessUnit = "";
-    //         $( "#businessUnit" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( ", Business Unit" );
-    //     }
-        
-    // } );
-    
-    // 1st program website
-    // $( "#websiteOneInput, #websiteTwoInput" ).on( "focus", function() {
-        
-    //     $( "#websites" ).removeClass( "d-none" );
-        
-    //     if ( this.id === "websiteOneInput" ) {
-            
-    //         $( "#websiteOne" ).removeClass( "d-none" ).addClass( "mark" );
-    //         return;
-            
-    //     }
-        
-    //     if ( this.id === "websiteTwoInput" ) {
-            
-    //         $( "#websiteOne" ).removeClass( "d-none" );
-    //         $( "#websiteTwo" ).removeClass( "d-none" ).addClass( "mark" );
-            
-    //         return;
-            
-    //     }
-        
-    // } );
-    
-    // $( "#websiteOneInput" ).on( "blur", function() {
-        
-    //     let value = trim( this.value.trim().toLowerCase().replace(/http(s)?:\/\//gi, ""), "/")
-        
-    //     businessCardComponents.firstWebsite = value;
-    //     this.value = businessCardComponents.firstWebsite;
-        
-    //     $( "#websiteOne" ).html( businessCardComponents.firstWebsite ).removeClass( "text-muted mark" );
-        
-    //     if ( value.length === 0 ) {
-            
-    //         this.value = "";
-    //         businessCardComponents.firstWebsite = "";
-    //         $( "#websiteOne" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "Website 1" );
-            
-    //     }
-        
-    // } );
-    
-    // $( "#websiteTwoInput" ).on( "blur", function() {
-        
-    //     let value = trim( this.value.trim().toLowerCase().replace(/http(s)?:\/\//gi, ""), "/");
-        
-    //     businessCardComponents.secondWebsite = value;
-    //     this.value = businessCardComponents.secondWebsite;
-        
-    //     $( "#websiteTwo" ).html( businessCardComponents.secondWebsite ).removeClass( "text-muted mark" );
-        
-    //     if ( value.length === 0 ) {
-            
-    //         this.value = "";
-    //         businessCardComponents.secondWebsite = "";
-    //         $( "#websiteTwo" ).addClass( "d-none text-muted" ).removeClass( "mark" ).html( "Website 2" );
-            
-    //         if ( $( "#websiteOneInput" ).val().length === 0 ) {
-    //             $( "#websiteOne" ).addClass( "d-none" );
-    //             $( "#websiteOneInput" ).attr( "required", false );
-    //         }
-            
-    //     } else {
-            
-    //         if ( $( "#websiteOneInput" ).val().length === 0 ) {
-            
-    //             $( "#websiteOne" ).removeClass( "d-none" );
-    //             $( "#websiteOneInput" ).attr( "required", true );
-                
-    //         }
-            
-    //     }
-        
-    // } );
-    
     // phone number
     $( "#phoneInput" ).on( "focus", function() {
         
@@ -305,6 +191,10 @@ $( document ).ready( function() {
     $( "#phoneInput" ).on( "blur", function() {
         
         let value = this.value.trim();
+
+        if ( value.endsWith( "x" ) ) {
+            value = value.slice( 0, -1 );
+        }
         
         businessCardComponents.phoneNumber = value;
         this.value = businessCardComponents.phoneNumber;
@@ -449,19 +339,13 @@ $( document ).ready( function() {
         
         let fullName = businessCardComponents.firstName + ( businessCardComponents.middleInitial.length ? " " + businessCardComponents.middleInitial + " " : " " ) + businessCardComponents.lastName;
         let credential = businessCardComponents.credential.length ? ", " + businessCardComponents.credential : "";
-        // let businessUnit = businessCardComponents.businessUnit.length ? ", " + businessCardComponents.businessUnit : "";
         let phoneNumber = businessCardComponents.phoneNumber.length ? " | " + businessCardComponents.phoneNumber : "";
-        // let websiteOne = businessCardComponents.firstWebsite.length ? businessCardComponents.firstWebsite : "";
-        // let websiteTwo = businessCardComponents.secondWebsite.length ? businessCardComponents.secondWebsite : "";
         
         $( "#card-preview .front .fullName" ).html( fullName );
         $( "#card-preview .front .credential" ).html( credential );
         $( "#card-preview .front .jobTitle" ).html( businessCardComponents.jobTitle );
-        // $( "#card-preview .front .businessUnit" ).html( businessUnit );
         $( "#card-preview .front .emailAddress" ).html( businessCardComponents.email );
         $( "#card-preview .front .phoneNumber" ).html( phoneNumber );
-        // $( "#card-preview .front .websiteOne" ).html( websiteOne );
-        // $( "#card-preview .front .websiteTwo" ).html( websiteTwo );
         
         // on animation
         $( "#card-preview" ).addClass( "swirl-in-fwd" );

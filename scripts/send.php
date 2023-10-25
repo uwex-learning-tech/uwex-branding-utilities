@@ -3,7 +3,7 @@
     // Only process POST reqeusts.
     if ( $_SERVER["REQUEST_METHOD"] == "POST" && isset( $_REQUEST ) ) {
         
-        require_once( "secrect.php" );
+        require_once( "secret.php" );
         
         $firstName = strip_tags( $_POST["firstName"] );
         $middleInitial = strip_tags( $_POST["middleInitial"] );

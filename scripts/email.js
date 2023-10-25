@@ -23,7 +23,13 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-$( document ).ready( function() {
+import '../css/email.scss';
+import $ from "jquery";
+import Inputmask from "inputmask";
+import { titleCase, selectText, trim } from './common';
+import 'bootstrap/js/dist/alert';
+
+$( function() {
     
     let signatureComponents = {
         "firstName": "",
@@ -44,7 +50,8 @@ $( document ).ready( function() {
     };
     
     // enable phone number formatting
-    $( "#phoneInput" ).inputmask({"mask": "[(999) 999-9999][, Ext. [999]{0,1}]{0,1}"});
+    //$( "#phoneInput" ).inputmask({"mask": "[(999) 999-9999][, Ext. [999]{0,1}]{0,1}"});
+    Inputmask( "(999) 999-9999[, Ext. [9{1,4}]]" ).mask( document.getElementById( "phoneInput" ) );
     
     /* on form input changes */
     
@@ -94,14 +101,6 @@ $( document ).ready( function() {
         
         let value = this.value.replace(".", "").trim();
         let newValue = value;
-        
-/*
-        if ( value.length ) {
-            [...value].forEach( c => c != "." ? newValue += c + "." : newValue += "" );
-        } else {
-            newValue = value;
-        }
-*/
         
         signatureComponents.middleInitial = newValue.toUpperCase();
         
@@ -345,6 +344,10 @@ $( document ).ready( function() {
     $( "#phoneInput" ).on( "blur", function() {
         
         let value = this.value.trim();
+
+        if ( value.endsWith( ", Ext." ) ) {
+            value = value.replace(", Ext.", "");
+        }
         
         signatureComponents.phoneNumber = value;
         this.value = signatureComponents.phoneNumber;
