@@ -3,6 +3,14 @@ University of Wisconsin Extended Campus branding utilities contain an email sign
 
 This project's development environment requires [Webpack](https://webpack.js.org/) for asset bundling and dependency management. [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/) (version 4.6.2) is used for formatting the HTML pages. CSS files are written and compiled with [SASS](https://sass-lang.com/), a CSS preprocessor. [jQuery](https://jquery.com/) is used in place of JavaScript.
 
+Note the following files are part of Webpack configurations for development purposes:
+- `package.json` contains project metadate and specifies the desired dependency packages and their versions
+- `package-lock.json` contains the exact version of the dependency packages that were actually installed
+- `webpack.common.js` contains majority of configurations that apply to both dev and prod build.
+- `webpack.dev.js` contains configurations for the dev preview with Webpack dev/live server;
+- `webpack.prod.js` contains configurations for production build.
+- `postcss.config.js` specifies Autoprefixer plugin for the PostCSS Loader.
+
 For production, a distribution (`dist`) or build must be generated before uploading to the web server. To generate this `dist` directory, run the `npm run build` command in the terminal.
 
 Example of the `dist` folder file structure:
